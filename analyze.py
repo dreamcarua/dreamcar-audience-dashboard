@@ -411,46 +411,50 @@ unique_parent_users = set()
 
 processed = []
 
+# Вага: 1 коментар = 1.0, 1 лайк = 0.3
+LIKE_WEIGHT = 0.3
+
 for c in comments:
     text = c['t']
     user = c['u']
     likes = c['l']
+    w = 1.0 + likes * LIKE_WEIGHT  # зважена "сила" цього коментаря
     unique_parent_users.add(user)
     brands = normalize_brand(text)
     models_detected = []
     for brand in brands:
-        brand_counter[brand] += 1
-        country_counter[BRAND_COUNTRY.get(brand, '—')] += 1
-        tier_counter[BRAND_TIER.get(brand, '—')] += 1
+        brand_counter[brand] += w
+        country_counter[BRAND_COUNTRY.get(brand, '—')] += w
+        tier_counter[BRAND_TIER.get(brand, '—')] += w
         models = normalize_model(text, brand)
         if not models:
             # Generic mention of brand - count as brand only
             pass
         for m in models:
-            model_counter[(brand, m)] += 1
+            model_counter[(brand, m)] += w
             body = BODY_TYPE.get(brand, {}).get(m)
             if body:
-                body_counter[body] += 1
+                body_counter[body] += w
             seg = PRICE_SEGMENT.get((brand, m))
             if seg:
                 # Extract tier (Mass/Premium/Luxury)
                 if 'Luxury' in seg:
-                    price_counter['Luxury ($80k+)'] += 1
+                    price_counter['Luxury ($80k+)'] += w
                 elif 'Premium' in seg and 'Mass' not in seg:
-                    price_counter['Premium ($40-80k)'] += 1
+                    price_counter['Premium ($40-80k)'] += w
                 elif 'Mass+' in seg:
-                    price_counter['Mass+ ($35-55k)'] += 1
+                    price_counter['Mass+ ($35-55k)'] += w
                 elif 'Mass' in seg:
-                    price_counter['Mass ($20-40k)'] += 1
+                    price_counter['Mass ($20-40k)'] += w
                 else:
-                    price_counter['Other'] += 1
+                    price_counter['Other'] += w
             models_detected.append(f'{brand} {m}')
 
     pt = detect_powertrain(text)
-    powertrain_counter[pt] += 1
+    powertrain_counter[pt] += w
     sentiments = detect_sentiment(text)
     for s in sentiments:
-        sentiment_counter[s] += 1
+        sentiment_counter[s] += w
 
     processed.append({
         'user': user,
@@ -462,8 +466,11 @@ for c in comments:
         'sentiment': sentiments,
     })
 
-# Additional: cabriolet mentions
-cabriolet_mentions = sum(1 for c in comments if re.search(r'кабріолет|cabriolet|родстер|roadster|mx-?5', c['t'].lower()))
+# Additional: cabriolet mentions (зважені з лайками)
+cabriolet_mentions = 0.0
+for c in comments:
+    if re.search(r'кабріолет|cabriolet|родстер|roadster|mx-?5', c['t'].lower()):
+        cabriolet_mentions += 1.0 + c['l'] * LIKE_WEIGHT
 if cabriolet_mentions:
     body_counter['Кабріолет/Родстер'] = body_counter.get('Кабріолет/Родстер', 0) + cabriolet_mentions
 
@@ -473,18 +480,27 @@ sport_mentions = sum(1 for c in comments if re.search(r'спорт|mustang|chall
 
 # === BUILD REPORT DATA ===
 
+# Round float weights to 1 decimal for cleaner JSON output
+def _round(d, k=1):
+    return {key: round(v, k) for key, v in d.items()}
+
+total_likes = sum(c['l'] for c in comments)
+
 report = {
     'total_comments': len(comments),
+    'total_likes': total_likes,
+    'like_weight': LIKE_WEIGHT,
+    'weighting_note': f'Кожен лайк додає {LIKE_WEIGHT} до ваги коментаря',
     'unique_users': len(unique_parent_users),
-    'brand_counter': dict(brand_counter.most_common()),
-    'model_counter': {f'{b} {m}': v for (b, m), v in model_counter.most_common()},
-    'body_counter': dict(body_counter.most_common()),
-    'powertrain_counter': dict(powertrain_counter.most_common()),
-    'country_counter': dict(country_counter.most_common()),
-    'tier_counter': dict(tier_counter.most_common()),
-    'price_counter': dict(price_counter.most_common()),
-    'sentiment_counter': dict(sentiment_counter.most_common()),
-    'cabriolet_mentions': cabriolet_mentions,
+    'brand_counter': _round(dict(brand_counter.most_common())),
+    'model_counter': _round({f'{b} {m}': v for (b, m), v in model_counter.most_common()}),
+    'body_counter': _round(dict(body_counter.most_common())),
+    'powertrain_counter': _round(dict(powertrain_counter.most_common())),
+    'country_counter': _round(dict(country_counter.most_common())),
+    'tier_counter': _round(dict(tier_counter.most_common())),
+    'price_counter': _round(dict(price_counter.most_common())),
+    'sentiment_counter': _round(dict(sentiment_counter.most_common())),
+    'cabriolet_mentions': round(cabriolet_mentions, 1),
     'processed': processed,
 }
 

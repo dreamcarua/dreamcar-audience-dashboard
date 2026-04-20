@@ -9,90 +9,85 @@ _HERE = os.path.dirname(os.path.abspath(__file__))
 with open(os.path.join(_HERE, 'analysis.json'), 'r', encoding='utf-8') as f:
     data = json.load(f)
 
-# Top-5 рекомендації на основі аналізу + логіки сегментів
-top5_recs = [
-    {
-        "rank": 1,
-        "model": "Audi Q8 / SQ8",
-        "category": "Premium SUV — беззаперечний фаворит",
-        "mentions": 9,
-        "brand_mentions": 28,
-        "segment": "Premium $60-100k · SUV · Німеччина",
-        "rationale": "Абсолютний лідер за прямими згадками моделі (9) та маркою (28 згадок Audi). Потрапляє одразу у 3 топ-тренди: Premium сегмент, SUV-кузов і німецький бренд. Для SQ8 додатково закриває потребу «драйвові емоції».",
-        "variants": "Audi Q8 2020+ / SQ8 / RS Q8 — різні бюджетні підвиходи"
-    },
-    {
-        "rank": 2,
-        "model": "Toyota RAV4 Hybrid",
-        "category": "Mass-market лідер — найдоступніший виграш",
-        "mentions": 7,
-        "brand_mentions": 12,
-        "segment": "Mass $25-45k · SUV · Японія",
-        "rationale": "Лідер серед mass-market моделей (7 прямих згадок). Закриває одразу три запити: SUV (домінантний кузов), гібрид (18 згадок загалом), доступна ціна (2 прямі прохання «щось дешевше і швидше»). Практичний сімейний вибір.",
-        "variants": "Toyota RAV4 Hybrid XA50 або нова XA60, також Highlander Hybrid як крок вгору"
-    },
-    {
-        "rank": 3,
-        "model": "Porsche Cayenne",
-        "category": "Емоційна «мрія» — сильний бренд",
-        "mentions": 6,
-        "brand_mentions": 8,
-        "segment": "Luxury $70-140k · SUV · Німеччина",
-        "rationale": "6 прямих згадок + висока емоційна залученість (найбільше позитивних емодзі у коментарях з Cayenne). У поєднанні з Macan (2) і Panamera — 10 згадок бренду. Це «aspirational» авто, що добре підсилює бренд DreamCar.",
-        "variants": "Porsche Cayenne 958 (2015-2017), Cayenne E3 (2018+), Cayenne E-Hybrid для гібридного запиту"
-    },
-    {
-        "rank": 4,
-        "model": "Audi e-tron (Q8 e-tron)",
-        "category": "Електро-премія — закриває eco-запит",
-        "mentions": 5,
-        "brand_mentions": 28,
-        "segment": "Premium $55-85k · SUV електро · Німеччина",
-        "rationale": "5 прямих згадок e-tron + 15 згадок електро-авто загалом + 18 гібридів = 33 коментарі хочуть eco-силову установку. Audi e-tron поєднує це з Premium-позиціонуванням і найпопулярнішим брендом.",
-        "variants": "Audi e-tron 55 quattro, e-tron Sportback, Q8 e-tron (ребренд 2023+)"
-    },
-    {
-        "rank": 5,
-        "model": "BMW X5 (G05)",
-        "category": "Сильна Premium-альтернатива",
-        "mentions": 3,
-        "brand_mentions": 9,
-        "segment": "Premium $50-90k · SUV · Німеччина",
-        "rationale": "3 прямі згадки X5 + 2 X7 = 5 згадок Premium SUV від BMW. Загалом BMW — 5-та марка (9). Конкурент Audi/Porsche — ротація між цими трьома утримує інтерес. X5 G05 у топ-комплектації = візуально сильний «дрім-приз».",
-        "variants": "BMW X5 G05 (2019+), X5 M50i, X5 xDrive45e Hybrid для eco-запиту"
-    },
-]
+# Динамічні топ-5 рекомендацій з analysis.json
 
-# Alternative candidates
-alt_recs = [
-    {
-        "model": "Volkswagen Touareg",
-        "mentions": 4,
-        "segment": "Premium $45-75k · SUV · Німеччина",
-        "note": "4 прямі згадки + 12 VW загалом. Дешевший вхід у Premium-SUV, якщо бюджет стисканий."
-    },
-    {
-        "model": "Mercedes-Benz GLC / GLE",
-        "mentions": 1,
-        "segment": "Premium $50-80k · SUV · Німеччина",
-        "note": "10 згадок Mercedes загалом — але без яскравого моделя-лідера. GLC як універсальний «мерседес-мрія»."
-    },
-    {
-        "model": "Tesla Model Y",
-        "mentions": 1,
-        "segment": "Mass+ $40-60k · SUV електро · США",
-        "note": "7 згадок Tesla, 15 електро. Model Y як mass-friendly електро-SUV для молодшої аудиторії."
-    },
-]
+# Сегменти і рекомендовані варіанти для популярних моделей
+SEGMENT_INFO = {
+    "Audi Q8/SQ8": ("Premium $60-100k · SUV · Німеччина", "Audi Q8 2020+ / SQ8 / RS Q8"),
+    "Toyota RAV4": ("Mass $25-45k · SUV · Японія", "RAV4 Hybrid XA50 або нова XA60"),
+    "Porsche Cayenne": ("Luxury $70-140k · SUV · Німеччина", "Cayenne 958 (2015-2017), E3 (2018+), E-Hybrid"),
+    "Audi e-tron": ("Premium $55-85k · SUV електро · Німеччина", "e-tron 55 quattro, e-tron Sportback, Q8 e-tron"),
+    "BMW X5": ("Premium $50-90k · SUV · Німеччина", "X5 G05 (2019+), M50i, xDrive45e Hybrid"),
+    "Volkswagen Touareg": ("Premium $45-75k · SUV · Німеччина", "Touareg III (2018+) або R Line"),
+    "Porsche Macan": ("Premium $55-90k · SUV · Німеччина", "Macan S (2022+) або Macan Turbo"),
+    "Audi Q5/SQ5": ("Premium $45-75k · SUV · Німеччина", "Q5 facelift 2020+ або SQ5"),
+    "Jeep Cherokee": ("Mass+ $35-50k · SUV · США", "Grand Cherokee L або класичний Cherokee"),
+    "Jeep Grand Cherokee": ("Premium $50-80k · SUV · США", "Grand Cherokee 5G (2022+)"),
+    "Volvo XC90": ("Premium $60-80k · SUV · Швеція", "XC90 Recharge (hybrid)"),
+    "BMW 4 Series": ("Premium $50-75k · Купе/Кабріо · Німеччина", "4 Series G22 Coupe / Convertible"),
+    "Ford Mustang": ("Mass+ $40-60k · Спорткар · США", "Mustang GT, Mach 1, Dark Horse"),
+    "Volkswagen Golf": ("Mass $25-45k · Хетчбек · Німеччина", "Golf R Mk8, GTI"),
+    "Tesla Model Y": ("Mass+ $40-60k · SUV електро · США", "Model Y Long Range або Performance"),
+    "Mercedes-Benz GLC": ("Premium $50-80k · SUV · Німеччина", "GLC 300 або GLC AMG"),
+    "Volkswagen Atlas": ("Mass+ $40-55k · SUV · Німеччина/США", "Atlas або Atlas Cross Sport"),
+}
 
-# Detailed key insights
+def _rationale(model, brand, mentions, brand_mentions, rank):
+    parts = [f"Рейтинг #{rank}: {mentions:.1f} зважених згадок моделі"]
+    if brand_mentions > mentions:
+        parts.append(f"бренд {brand} — {brand_mentions:.1f} загалом")
+    return ". ".join(parts) + "."
+
+model_items = list(data['model_counter'].items())
+top5_recs = []
+for rank, (model, mentions) in enumerate(model_items[:5], 1):
+    brand = model.split()[0]
+    if brand == "Mercedes-Benz":
+        pass
+    elif brand == "Volkswagen":
+        pass
+    segment, variants = SEGMENT_INFO.get(model, (f"Сегмент уточнюється · {brand}", "Уточнюється"))
+    top5_recs.append({
+        "rank": rank,
+        "model": model,
+        "category": f"Топ-{rank} за зваженими згадками",
+        "mentions": mentions,
+        "brand_mentions": data['brand_counter'].get(brand, 0),
+        "segment": segment,
+        "rationale": _rationale(model, brand, mentions, data['brand_counter'].get(brand, 0), rank),
+        "variants": variants,
+    })
+
+alt_recs = []
+for model, mentions in model_items[5:8]:
+    brand = model.split()[0]
+    segment, _ = SEGMENT_INFO.get(model, (f"Сегмент уточнюється · {brand}", ""))
+    alt_recs.append({
+        "model": model,
+        "mentions": mentions,
+        "segment": segment,
+        "note": f"{mentions:.1f} зважених згадок. Альтернатива в тому самому сегменті — добрий бекап."
+    })
+
+# Автоматичні інсайти з даних
+total_body = sum(data['body_counter'].values())
+suv_pct = round(100 * sum(v for k, v in data['body_counter'].items() if 'SUV' in k) / total_body) if total_body else 0
+de_brands = sum(v for k, v in data['country_counter'].items() if 'Німеччина' in k)
+total_countries = sum(data['country_counter'].values()) or 1
+de_pct = round(100 * de_brands / total_countries)
+eco_weight = data['powertrain_counter'].get('Гібрид', 0) + data['powertrain_counter'].get('Електро', 0)
+total_pt = sum(data['powertrain_counter'].values()) or 1
+eco_pct = round(100 * eco_weight / total_pt)
+total_price = sum(data['price_counter'].values()) or 1
+premium_pct = round(100 * data['price_counter'].get('Premium ($40-80k)', 0) / total_price)
+
 insights = [
-    {"title": "SUV domination", "value": "70% згадок моделей — SUV/Кросовери", "detail": "65 зі 92 розпізнаних моделей — це SUV. Седанів лише 15 (16%). Аудиторія однозначно хоче сімейне, статусне авто."},
-    {"title": "Німецьке серце", "value": "52% марок — німецькі", "detail": "67 зі 129 згадок марок. Audi (28), Volkswagen (12), Mercedes (10), BMW (9), Porsche (8). Японія друга (19)."},
-    {"title": "Eco-запит 26%", "value": "33 коментарі про гібрид/електро", "detail": "18 гібридів + 15 електро. Це великий сигнал — аудиторія свідома щодо типу силової установки."},
-    {"title": "Premium-центр", "value": "54% згадок — Premium $40-80k", "detail": "58 із 107 розпізнаних моделей у ціновому сегменті $40-80k. Luxury $80k+ — ще 14 згадок."},
-    {"title": "Кабріолет-меншість", "value": "3 запити на кабріолет/родстер", "detail": "«Незабаром літо», «щось цікаве, як Eclipse», Mazda MX-5 — малий, але виразний сегмент."},
-    {"title": "Просять дешевше", "value": "2 прямі коментарі", "detail": "«Не Porsche чи Mercedes, щось середнє, але нове», «дешевші авто, швидше проводити розіграш». Сигнал до роздумів про частоту/вартість."},
+    {"title": "SUV domination", "value": f"{suv_pct}% згадок — SUV/Кросовери", "detail": "Аудиторія однозначно хоче сімейне, статусне авто."},
+    {"title": "Німецьке серце", "value": f"{de_pct}% марок — німецькі", "detail": f"Німеччина: {de_brands:.1f} згадок. Наступні — Японія і Чехія/США."},
+    {"title": "Eco-запит", "value": f"{eco_pct}% — гібрид/електро", "detail": f"Зважених згадок: {eco_weight:.1f}. Аудиторія свідома щодо силової установки."},
+    {"title": "Premium-центр", "value": f"{premium_pct}% — Premium $40-80k", "detail": "Серцевина інтересу — доступний преміум."},
+    {"title": "Кабріолет-меншість", "value": f"{data.get('cabriolet_mentions', 0)} зважених згадок", "detail": "Малий але помітний сегмент — літній маркетинг."},
+    {"title": "Зважування", "value": f"Лайк = {data.get('like_weight', 0.3)}", "detail": f"Враховані {data.get('total_likes', 0)} лайків на {data.get('total_comments', 0)} коментарях."},
 ]
 
 # Sample comments for explorer
@@ -342,12 +337,12 @@ html = f"""<!DOCTYPE html>
 
   <!-- Top stats -->
   <div class="stats-row">
-    <div class="stat"><div class="label">Усього коментарів</div><div class="value">{data["total_comments"]}</div><div class="sublabel">+ 2 відповіді на гілки</div></div>
+    <div class="stat"><div class="label">Усього коментарів</div><div class="value">{data["total_comments"]}</div><div class="sublabel">{data.get("total_likes", 0)} лайків усього</div></div>
     <div class="stat"><div class="label">Унікальних авторів</div><div class="value">{data["unique_users"]}</div><div class="sublabel">1 юзер ≈ 1 коментар</div></div>
-    <div class="stat"><div class="label">Розпізнано марок</div><div class="value">{sum(brand_data.values())}</div><div class="sublabel">включно з множ. у 1 коментарі</div></div>
-    <div class="stat"><div class="label">Розпізнано моделей</div><div class="value">{sum(model_data.values())}</div><div class="sublabel">точність нормалізації ~95%</div></div>
-    <div class="stat"><div class="label">Топ-марка</div><div class="value" style="font-size:22px; color:var(--accent)">Audi</div><div class="sublabel">{brand_data.get("Audi", 0)} згадок (22% усіх марок)</div></div>
-    <div class="stat"><div class="label">Топ-модель</div><div class="value" style="font-size:22px; color:var(--accent)">Audi Q8/SQ8</div><div class="sublabel">9 прямих згадок</div></div>
+    <div class="stat"><div class="label">Розпізнано марок</div><div class="value">{sum(brand_data.values()):.0f}</div><div class="sublabel">зважено: лайк = {data.get("like_weight", 0.3)} коментаря</div></div>
+    <div class="stat"><div class="label">Розпізнано моделей</div><div class="value">{sum(model_data.values()):.0f}</div><div class="sublabel">нормалізація кирилиці й латиниці</div></div>
+    <div class="stat"><div class="label">Топ-марка</div><div class="value" style="font-size:22px; color:var(--accent)">{(list(brand_data.keys())[0] if brand_data else "—")}</div><div class="sublabel">{(list(brand_data.values())[0] if brand_data else 0):.1f} зважених згадок</div></div>
+    <div class="stat"><div class="label">Топ-модель</div><div class="value" style="font-size:22px; color:var(--accent)">{(list(model_data.keys())[0] if model_data else "—")}</div><div class="sublabel">{(list(model_data.values())[0] if model_data else 0):.1f} зважених згадок</div></div>
   </div>
 
   <!-- Key insights -->
@@ -381,9 +376,9 @@ for rec in top5_recs:
       <div class="variants">Варіанти: {rec["variants"]}</div>
     </div>
     <div class="meta">
-      <div class="mentions-num">{rec["mentions"]}</div>
-      <div class="mentions-lbl">прямих згадок</div>
-      <div style="margin-top:6px; color:var(--muted); font-size:11px;">бренд: {rec["brand_mentions"]}</div>
+      <div class="mentions-num">{rec["mentions"]:.1f}</div>
+      <div class="mentions-lbl">зважених згадок</div>
+      <div style="margin-top:6px; color:var(--muted); font-size:11px;">бренд: {rec["brand_mentions"]:.1f}</div>
       <div class="segment">{rec["segment"]}</div>
     </div>
   </div>"""
@@ -401,7 +396,7 @@ for alt in alt_recs:
       <div class="alt-segment">{alt["segment"]}</div>
     </div>
     <div style="text-align:right; min-width:80px;">
-      <div style="color:var(--accent); font-weight:800; font-size:20px;">{alt["mentions"]}</div>
+      <div style="color:var(--accent); font-weight:800; font-size:20px;">{alt["mentions"]:.1f}</div>
       <div style="color:var(--muted); font-size:11px; text-transform:uppercase;">згадок</div>
     </div>
   </div>"""
