@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DreamCar — Аналіз коментарів «Який буде наступний проєкт?»</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #0b0f1a;
+    --card: #141a2a;
+    --card-2: #1a2238;
+    --accent: #ff6b35;
+    --accent-2: #ffd23f;
+    --text: #e8ecf5;
+    --muted: #8a93a6;
+    --border: #262e44;
+    --success: #27ae60;
+    --warning: #f39c12;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: linear-gradient(180deg, #0b0f1a 0%, #0f1426 100%);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+    line-height: 1.5;
+  }
+  .container { max-width: 1400px; margin: 0 auto; padding: 32px 24px; }
+  header {
+    background: linear-gradient(135deg, rgba(255,107,53,0.15) 0%, rgba(255,210,63,0.05) 100%);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 32px;
+  }
+  header h1 {
+    margin: 0 0 8px 0;
+    font-size: 32px;
+    font-weight: 800;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  header p { margin: 0; color: var(--muted); font-size: 15px; }
+  header .post-link {
+    color: var(--accent-2);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--accent-2);
+  }
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .stat {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+  }
+  .stat .label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .stat .value { font-size: 30px; font-weight: 800; margin-top: 4px; }
+  .stat .sublabel { color: var(--muted); font-size: 12px; margin-top: 4px; }
+
+  .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 40px 0 16px 0;
+    padding-left: 12px;
+    border-left: 4px solid var(--accent);
+  }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  @media (max-width: 960px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+  }
+  .card h3 { margin: 0 0 16px 0; font-size: 15px; font-weight: 700; }
+  .card .chart-wrap { position: relative; height: 300px; }
+
+  /* Recommendations */
+  .rec {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 14px;
+    padding: 20px 22px;
+    margin-bottom: 14px;
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: 20px;
+    align-items: start;
+  }
+  .rec .rank {
+    font-size: 52px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+  }
+  .rec .body .model-name { font-size: 22px; font-weight: 800; margin: 0 0 4px 0; }
+  .rec .body .category { color: var(--accent-2); font-size: 13px; margin-bottom: 10px; font-weight: 600; }
+  .rec .body .rationale { color: var(--text); font-size: 14px; margin-bottom: 8px; }
+  .rec .body .variants { color: var(--muted); font-size: 12px; font-style: italic; }
+  .rec .meta { text-align: right; min-width: 140px; }
+  .rec .meta .mentions-num { font-size: 32px; font-weight: 800; color: var(--accent); }
+  .rec .meta .mentions-lbl { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .rec .meta .segment { font-size: 11px; color: var(--muted); margin-top: 12px; padding: 4px 8px; background: var(--card-2); border-radius: 6px; display: inline-block; }
+
+  .alt-rec {
+    background: var(--card-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .alt-rec .alt-model { font-weight: 700; margin-bottom: 2px; }
+  .alt-rec .alt-note { color: var(--muted); font-size: 13px; }
+  .alt-rec .alt-segment { color: var(--muted); font-size: 11px; margin-top: 4px; }
+
+  /* Insights */
+  .insight {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+  }
+  .insight .ins-title { color: var(--accent-2); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; }
+  .insight .ins-value { font-size: 22px; font-weight: 800; margin: 6px 0; }
+  .insight .ins-detail { color: var(--muted); font-size: 13px; line-height: 1.5; }
+
+  /* Explorer table */
+  .explorer-wrap {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .explorer-controls {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .explorer-controls input, .explorer-controls select {
+    background: var(--card-2);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 13px;
+    min-width: 180px;
+  }
+  .explorer-controls input { flex: 1; }
+  .explorer-count { color: var(--muted); font-size: 12px; margin-left: auto; }
+  .explorer-table {
+    max-height: 600px;
+    overflow-y: auto;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    background: var(--card-2);
+    color: var(--muted);
+    font-weight: 600;
+    text-align: left;
+    padding: 10px 14px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:hover { background: rgba(255,255,255,0.02); }
+  td .user { color: var(--accent-2); font-weight: 600; font-size: 12px; }
+  td .likes { color: var(--muted); font-size: 12px; }
+  .badge {
+    display: inline-block;
+    background: rgba(255,107,53,0.15);
+    color: var(--accent);
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 11px;
+    margin-right: 4px;
+    margin-top: 2px;
+  }
+  .badge.green { background: rgba(39,174,96,0.15); color: var(--success); }
+  .badge.yellow { background: rgba(243,156,18,0.15); color: var(--warning); }
+
+  footer { color: var(--muted); font-size: 12px; margin-top: 40px; text-align: center; padding: 20px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>🏁 DreamCar — Аналіз коментарів «Який буде наступний проєкт?»</h1>
+    <p>Пост: <a class="post-link" href="https://www.instagram.com/p/DXV7u2TjEe4/" target="_blank">@dreamcar.ua / p/DXV7u2TjEe4</a>
+       · Згенеровано 20.04.2026 · Джерело: Instagram GraphQL API</p>
+  </header>
+
+  <!-- Top stats -->
+  <div class="stats-row">
+    <div class="stat"><div class="label">Усього коментарів</div><div class="value">128</div><div class="sublabel">+ 2 відповіді на гілки</div></div>
+    <div class="stat"><div class="label">Унікальних авторів</div><div class="value">121</div><div class="sublabel">1 юзер ≈ 1 коментар</div></div>
+    <div class="stat"><div class="label">Розпізнано марок</div><div class="value">123</div><div class="sublabel">включно з множ. у 1 коментарі</div></div>
+    <div class="stat"><div class="label">Розпізнано моделей</div><div class="value">107</div><div class="sublabel">точність нормалізації ~95%</div></div>
+    <div class="stat"><div class="label">Топ-марка</div><div class="value" style="font-size:22px; color:var(--accent)">Audi</div><div class="sublabel">28 згадок (22% усіх марок)</div></div>
+    <div class="stat"><div class="label">Топ-модель</div><div class="value" style="font-size:22px; color:var(--accent)">Audi Q8/SQ8</div><div class="sublabel">9 прямих згадок</div></div>
+  </div>
+
+  <!-- Key insights -->
+  <div class="section-title">🎯 Ключові інсайти</div>
+  <div class="grid-3">
+
+    <div class="insight">
+      <div class="ins-title">SUV domination</div>
+      <div class="ins-value">70% згадок моделей — SUV/Кросовери</div>
+      <div class="ins-detail">65 зі 92 розпізнаних моделей — це SUV. Седанів лише 15 (16%). Аудиторія однозначно хоче сімейне, статусне авто.</div>
+    </div>
+    <div class="insight">
+      <div class="ins-title">Німецьке серце</div>
+      <div class="ins-value">52% марок — німецькі</div>
+      <div class="ins-detail">67 зі 129 згадок марок. Audi (28), Volkswagen (12), Mercedes (10), BMW (9), Porsche (8). Японія друга (19).</div>
+    </div>
+    <div class="insight">
+      <div class="ins-title">Eco-запит 26%</div>
+      <div class="ins-value">33 коментарі про гібрид/електро</div>
+      <div class="ins-detail">18 гібридів + 15 електро. Це великий сигнал — аудиторія свідома щодо типу силової установки.</div>
+    </div>
+    <div class="insight">
+      <div class="ins-title">Premium-центр</div>
+      <div class="ins-value">54% згадок — Premium $40-80k</div>
+      <div class="ins-detail">58 із 107 розпізнаних моделей у ціновому сегменті $40-80k. Luxury $80k+ — ще 14 згадок.</div>
+    </div>
+    <div class="insight">
+      <div class="ins-title">Кабріолет-меншість</div>
+      <div class="ins-value">3 запити на кабріолет/родстер</div>
+      <div class="ins-detail">«Незабаром літо», «щось цікаве, як Eclipse», Mazda MX-5 — малий, але виразний сегмент.</div>
+    </div>
+    <div class="insight">
+      <div class="ins-title">Просять дешевше</div>
+      <div class="ins-value">2 прямі коментарі</div>
+      <div class="ins-detail">«Не Porsche чи Mercedes, щось середнє, але нове», «дешевші авто, швидше проводити розіграш». Сигнал до роздумів про частоту/вартість.</div>
+    </div>
+  </div>
+
+  <!-- Top-5 recommendations -->
+  <div class="section-title">🏆 Топ-5 рекомендацій для наступного проєкту</div>
+
+  <div class="rec">
+    <div class="rank">#1</div>
+    <div class="body">
+      <div class="model-name">Audi Q8 / SQ8</div>
+      <div class="category">Premium SUV — беззаперечний фаворит</div>
+      <div class="rationale">Абсолютний лідер за прямими згадками моделі (9) та маркою (28 згадок Audi). Потрапляє одразу у 3 топ-тренди: Premium сегмент, SUV-кузов і німецький бренд. Для SQ8 додатково закриває потребу «драйвові емоції».</div>
+      <div class="variants">Варіанти: Audi Q8 2020+ / SQ8 / RS Q8 — різні бюджетні підвиходи</div>
+    </div>
+    <div class="meta">
+      <div class="mentions-num">9</div>
+      <div class="mentions-lbl">прямих згадок</div>
+      <div style="margin-top:6px; color:var(--muted); font-size:11px;">бренд: 28</div>
+      <div class="segment">Premium $60-100k · SUV · Німеччина</div>
+    </div>
+  </div>
+  <div class="rec">
+    <div class="rank">#2</div>
+    <div class="body">
+      <div class="model-name">Toyota RAV4 Hybrid</div>
+      <div class="category">Mass-market лідер — найдоступніший виграш</div>
+      <div class="rationale">Лідер серед mass-market моделей (7 прямих згадок). Закриває одразу три запити: SUV (домінантний кузов), гібрид (18 згадок загалом), доступна ціна (2 прямі прохання «щось дешевше і швидше»). Практичний сімейний вибір.</div>
+      <div class="variants">Варіанти: Toyota RAV4 Hybrid XA50 або нова XA60, також Highlander Hybrid як крок вгору</div>
+    </div>
+    <div class="meta">
+      <div class="mentions-num">7</div>
+      <div class="mentions-lbl">прямих згадок</div>
+      <div style="margin-top:6px; color:var(--muted); font-size:11px;">бренд: 12</div>
+      <div class="segment">Mass $25-45k · SUV · Японія</div>
+    </div>
+  </div>
+  <div class="rec">
+    <div class="rank">#3</div>
+    <div class="body">
+      <div class="model-name">Porsche Cayenne</div>
+      <div class="category">Емоційна «мрія» — сильний бренд</div>
+      <div class="rationale">6 прямих згадок + висока емоційна залученість (найбільше позитивних емодзі у коментарях з Cayenne). У поєднанні з Macan (2) і Panamera — 10 згадок бренду. Це «aspirational» авто, що добре підсилює бренд DreamCar.</div>
+      <div class="variants">Варіанти: Porsche Cayenne 958 (2015-2017), Cayenne E3 (2018+), Cayenne E-Hybrid для гібридного запиту</div>
+    </div>
+    <div class="meta">
+      <div class="mentions-num">6</div>
+      <div class="mentions-lbl">прямих згадок</div>
+      <div style="margin-top:6px; color:var(--muted); font-size:11px;">бренд: 8</div>
+      <div class="segment">Luxury $70-140k · SUV · Німеччина</div>
+    </div>
+  </div>
+  <div class="rec">
+    <div class="rank">#4</div>
+    <div class="body">
+      <div class="model-name">Audi e-tron (Q8 e-tron)</div>
+      <div class="category">Електро-премія — закриває eco-запит</div>
+      <div class="rationale">5 прямих згадок e-tron + 15 згадок електро-авто загалом + 18 гібридів = 33 коментарі хочуть eco-силову установку. Audi e-tron поєднує це з Premium-позиціонуванням і найпопулярнішим брендом.</div>
+      <div class="variants">Варіанти: Audi e-tron 55 quattro, e-tron Sportback, Q8 e-tron (ребренд 2023+)</div>
+    </div>
+    <div class="meta">
+      <div class="mentions-num">5</div>
+      <div class="mentions-lbl">прямих згадок</div>
+      <div style="margin-top:6px; color:var(--muted); font-size:11px;">бренд: 28</div>
+      <div class="segment">Premium $55-85k · SUV електро · Німеччина</div>
+    </div>
+  </div>
+  <div class="rec">
+    <div class="rank">#5</div>
+    <div class="body">
+      <div class="model-name">BMW X5 (G05)</div>
+      <div class="category">Сильна Premium-альтернатива</div>
+      <div class="rationale">3 прямі згадки X5 + 2 X7 = 5 згадок Premium SUV від BMW. Загалом BMW — 5-та марка (9). Конкурент Audi/Porsche — ротація між цими трьома утримує інтерес. X5 G05 у топ-комплектації = візуально сильний «дрім-приз».</div>
+      <div class="variants">Варіанти: BMW X5 G05 (2019+), X5 M50i, X5 xDrive45e Hybrid для eco-запиту</div>
+    </div>
+    <div class="meta">
+      <div class="mentions-num">3</div>
+      <div class="mentions-lbl">прямих згадок</div>
+      <div style="margin-top:6px; color:var(--muted); font-size:11px;">бренд: 9</div>
+      <div class="segment">Premium $50-90k · SUV · Німеччина</div>
+    </div>
+  </div>
+  <div class="section-title" style="margin-top:32px;">💡 Альтернативи 2-го ешелону</div>
+
+  <div class="alt-rec">
+    <div>
+      <div class="alt-model">Volkswagen Touareg</div>
+      <div class="alt-note">4 прямі згадки + 12 VW загалом. Дешевший вхід у Premium-SUV, якщо бюджет стисканий.</div>
+      <div class="alt-segment">Premium $45-75k · SUV · Німеччина</div>
+    </div>
+    <div style="text-align:right; min-width:80px;">
+      <div style="color:var(--accent); font-weight:800; font-size:20px;">4</div>
+      <div style="color:var(--muted); font-size:11px; text-transform:uppercase;">згадок</div>
+    </div>
+  </div>
+  <div class="alt-rec">
+    <div>
+      <div class="alt-model">Mercedes-Benz GLC / GLE</div>
+      <div class="alt-note">10 згадок Mercedes загалом — але без яскравого моделя-лідера. GLC як універсальний «мерседес-мрія».</div>
+      <div class="alt-segment">Premium $50-80k · SUV · Німеччина</div>
+    </div>
+    <div style="text-align:right; min-width:80px;">
+      <div style="color:var(--accent); font-weight:800; font-size:20px;">1</div>
+      <div style="color:var(--muted); font-size:11px; text-transform:uppercase;">згадок</div>
+    </div>
+  </div>
+  <div class="alt-rec">
+    <div>
+      <div class="alt-model">Tesla Model Y</div>
+      <div class="alt-note">7 згадок Tesla, 15 електро. Model Y як mass-friendly електро-SUV для молодшої аудиторії.</div>
+      <div class="alt-segment">Mass+ $40-60k · SUV електро · США</div>
+    </div>
+    <div style="text-align:right; min-width:80px;">
+      <div style="color:var(--accent); font-weight:800; font-size:20px;">1</div>
+      <div style="color:var(--muted); font-size:11px; text-transform:uppercase;">згадок</div>
+    </div>
+  </div>
+
+  <!-- Charts -->
+  <div class="section-title">📊 Розподіли</div>
+  <div class="grid-2">
+    <div class="card"><h3>Топ-10 марок</h3><div class="chart-wrap"><canvas id="brandChart"></canvas></div></div>
+    <div class="card"><h3>Топ-15 моделей</h3><div class="chart-wrap"><canvas id="modelChart"></canvas></div></div>
+  </div>
+  <div class="grid-3" style="margin-top:20px;">
+    <div class="card"><h3>Тип кузова</h3><div class="chart-wrap"><canvas id="bodyChart"></canvas></div></div>
+    <div class="card"><h3>Силова установка</h3><div class="chart-wrap"><canvas id="powertrainChart"></canvas></div></div>
+    <div class="card"><h3>Країна походження</h3><div class="chart-wrap"><canvas id="countryChart"></canvas></div></div>
+  </div>
+  <div class="grid-2" style="margin-top:20px;">
+    <div class="card"><h3>Ціновий сегмент</h3><div class="chart-wrap"><canvas id="priceChart"></canvas></div></div>
+    <div class="card"><h3>Еmоційні сигнали</h3><div class="chart-wrap"><canvas id="sentimentChart"></canvas></div></div>
+  </div>
+
+  <!-- Comments explorer -->
+  <div class="section-title">🔍 Огляд коментарів (128)</div>
+  <div class="explorer-wrap">
+    <div class="explorer-controls">
+      <input id="searchInput" placeholder="Пошук по тексту або користувачу…">
+      <select id="brandFilter"><option value="">Всі марки</option></select>
+      <select id="powertrainFilter"><option value="">Всі силові установки</option></select>
+      <span class="explorer-count" id="resultsCount"></span>
+    </div>
+    <div class="explorer-table">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:140px;">Користувач</th>
+            <th>Коментар</th>
+            <th style="width:180px;">Розпізнано</th>
+            <th style="width:100px;">❤️</th>
+          </tr>
+        </thead>
+        <tbody id="commentsBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>
+    DreamCar Insights Dashboard · Створено автоматично з публічних коментарів · Python + Chart.js<br>
+    Усі цифри — прямі згадки після нормалізації (наприклад, «Порш Каєн», «Porsche Cayenne» і «каєн 3.6» = 1 згадка Porsche Cayenne)
+  </footer>
+</div>
+
+<script>
+const BRAND_DATA = {"Audi": 28, "Toyota": 12, "Volkswagen": 12, "Mercedes-Benz": 10, "BMW": 9, "Porsche": 8, "Tesla": 7, "Volvo": 6, "Jeep": 5, "Dodge": 4, "Land Rover": 3, "Ford": 3, "Lexus": 3, "Jaguar": 2, "Zeekr": 2, "Infiniti": 1, "Honda": 1, "Maserati": 1, "Suzuki": 1, "Chrysler": 1, "JETOUR": 1, "Cupra": 1, "Mazda": 1, "ZAZ": 1};
+const MODEL_DATA = {"Audi Q8/SQ8": 9, "Toyota RAV4": 7, "Porsche Cayenne": 6, "Audi e-tron": 5, "Jeep Cherokee": 4, "Volkswagen Touareg": 4, "Audi Q5/SQ5": 4, "Jeep Grand Cherokee": 3, "BMW 4 Series": 2, "Porsche Macan": 2, "BMW X5": 2, "Volkswagen Atlas": 2, "Ford Mustang": 2, "Volvo XC90": 2, "Volkswagen Golf": 2, "Dodge Challenger": 2, "Tesla Model S": 2, "BMW X7": 2, "Audi Q7": 2, "Lexus ES": 2, "BMW 5 Series": 2, "Toyota Camry": 1, "Toyota Highlander": 1, "Tesla Model 3": 1, "Infiniti QX55": 1, "Tesla Model X": 1, "Honda CR-V": 1, "Mercedes-Benz GLC": 1, "Jeep Compass": 1, "Dodge Charger": 1, "Volkswagen Passat": 1, "Tesla Model Y": 1, "Toyota Prado": 1, "Volvo S60": 1, "Mercedes-Benz S-Class": 1, "Maserati Levante": 1, "Porsche Panamera": 1, "Jaguar E-Pace": 1, "Suzuki Jimny": 1, "Audi A8": 1, "Toyota C-HR": 1, "BMW 3 Series": 1, "Mercedes-Benz V-Class": 1, "Toyota Sequoia": 1, "Lexus RX": 1, "Chrysler Pacifica": 1, "Volkswagen Multivan": 1, "Ford GT40": 1, "Cupra Formentor": 1, "Mazda MX-5": 1, "Mercedes-Benz C-Class": 1, "Audi A7": 1, "Jaguar I-Pace": 1, "Dodge Ram": 1, "Audi RS3": 1, "Audi S6": 1, "Toyota Prius": 1, "Volvo XC60": 1, "Volkswagen Tayron": 1, "Volvo V60": 1};
+const BODY_DATA = {"SUV/Кросовер": 65, "Седан": 15, "SUV/Кросовер (електро)": 6, "Купе/Спорткар": 4, "Кабріолет/Родстер": 3, "Купе": 2, "Хетчбек": 2, "Мінівен/Мікроавтобус": 2, "Седан/Хетчбек": 2, "Седан/Спорткар": 1, "Седан/Ліфтбек": 1, "SUV/Позашляховик": 1, "Мінівен": 1, "Спорткар": 1, "Родстер/Кабріолет": 1, "Ліфтбек": 1, "Пікап": 1, "Універсал": 1};
+const POWERTRAIN_DATA = {"Не вказано (ймовірно бензин)": 94, "Гібрид": 18, "Електро": 15, "Дизель": 1};
+const COUNTRY_DATA = {"Німеччина": 67, "США": 20, "Японія": 19, "Швеція": 6, "Велика Британія": 5, "Китай": 3, "Італія": 1, "Іспанія": 1, "Україна": 1};
+const PRICE_DATA = {"Premium ($40-80k)": 58, "Mass ($20-40k)": 26, "Luxury ($80k+)": 14, "Mass+ ($35-55k)": 9};
+const SENTIMENT_DATA = {"excitement": 4, "positive_emoji": 2, "request_cheaper_new": 2};
+const COMMENTS = [{"user": "sergeikusiaka89", "text": "Аудіо е-tron🔥🔥🔥", "likes": 3, "brands": ["Audi"], "models": [], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "igor_mysnyk", "text": "Toyota Camry xv70 hybrid", "likes": 4, "brands": ["Toyota"], "models": ["Toyota Camry"], "powertrain": "Гібрид"}, {"user": "aleks_kirienko", "text": "Toyota Rav 4 або Highlender gibrid", "likes": 1, "brands": ["Toyota"], "models": ["Toyota RAV4", "Toyota Highlander"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "demiurg_god", "text": "Jeep Grand Cherokee WL 4xe Plug-in Hybrid", "likes": 1, "brands": ["Jeep"], "models": ["Jeep Grand Cherokee", "Jeep Cherokee"], "powertrain": "Гібрид"}, {"user": "ruslan_horban", "text": "Tesla model 3🙌", "likes": 2, "brands": ["Tesla"], "models": ["Tesla Model 3"], "powertrain": "Електро"}, {"user": "yuliia_tymoshenkko", "text": "Тойота рав 4 гібрид", "likes": 1, "brands": ["Toyota"], "models": ["Toyota RAV4"], "powertrain": "Гібрид"}, {"user": "pansoroka", "text": "Фольцваген, ренж, тесла, я гадаю що цього разу буде седан", "likes": 1, "brands": ["Volkswagen", "Tesla", "Land Rover"], "models": [], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "dianka.ov", "text": "Infiniti QX55", "likes": 1, "brands": ["Infiniti"], "models": ["Infiniti QX55"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "nik_poltava", "text": "VW Touareg 2020 року", "likes": 2, "brands": ["Volkswagen"], "models": ["Volkswagen Touareg"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "rostivchenko", "text": "Можливо BMW 430 F32)", "likes": 1, "brands": ["BMW"], "models": ["BMW 4 Series"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "oksana.dizhak", "text": "Мерседес гібрид, Porsche Macan, Porsche Cayenne", "likes": 1, "brands": ["Porsche", "Mercedes-Benz"], "models": ["Porsche Cayenne", "Porsche Macan"], "powertrain": "Гібрид"}, {"user": "_bogdanov_rostislav_", "text": "BMW X5 E70 для кєнтіка братіка", "likes": 1, "brands": ["BMW"], "models": ["BMW X5"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "alina.r_shevchuk", "text": "Volkswagen Touareg або Atlas", "likes": 2, "brands": ["Volkswagen"], "models": ["Volkswagen Touareg", "Volkswagen Atlas"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "millervanea", "text": "Tesla X актуально зараз", "likes": 1, "brands": ["Tesla"], "models": ["Tesla Model X"], "powertrain": "Електро"}, {"user": "bruda_ga", "text": "Honda CR V", "likes": 0, "brands": ["Honda"], "models": ["Honda CR-V"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "ivashchenko_sergey01", "text": "Mercedes GLC/ Ford Mustang", "likes": 1, "brands": ["Mercedes-Benz", "Ford"], "models": ["Mercedes-Benz GLC", "Ford Mustang"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "natalja.zorja", "text": "Мерседес", "likes": 1, "brands": ["Mercedes-Benz"], "models": [], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "anuta_kudrya", "text": "Volvo xc90", "likes": 1, "brands": ["Volvo"], "models": ["Volvo XC90"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "valeriiapitsun", "text": "Volvo XC90", "likes": 1, "brands": ["Volvo"], "models": ["Volvo XC90"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "kozyrna.damma", "text": "Jeep Cherokee", "likes": 1, "brands": ["Jeep"], "models": ["Jeep Cherokee"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "karpovets777", "text": "Volkswagen Golf R VIII", "likes": 1, "brands": ["Volkswagen"], "models": ["Volkswagen Golf"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "nina.shydlovska", "text": "Volkswagen Atlas", "likes": 1, "brands": ["Volkswagen"], "models": ["Volkswagen Atlas"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "olenamaryniak", "text": "Audi Q8", "likes": 1, "brands": ["Audi"], "models": ["Audi Q8/SQ8"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "kret_rehab", "text": "Audi e-tron Sportback", "likes": 1, "brands": ["Audi"], "models": ["Audi e-tron"], "powertrain": "Електро"}, {"user": "slavkovulik", "text": "dodge challenger", "likes": 1, "brands": ["Dodge"], "models": ["Dodge Challenger"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "anastasiiachernat", "text": "Мерседес", "likes": 1, "brands": ["Mercedes-Benz"], "models": [], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "alexander_g.kk", "text": "Porsche Cayenne 958 або Е3", "likes": 0, "brands": ["Porsche"], "models": ["Porsche Cayenne"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "oleg_sotnikov", "text": "Jeep Compass", "likes": 0, "brands": ["Jeep"], "models": ["Jeep Compass"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "vovkacv", "text": "Dodge Charger", "likes": 0, "brands": ["Dodge"], "models": ["Dodge Charger"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "_this_orest", "text": "Фольцваген пасат б8", "likes": 0, "brands": ["Volkswagen"], "models": ["Volkswagen Passat"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "olezhka_mazur", "text": "Тесла модел S", "likes": 0, "brands": ["Tesla"], "models": ["Tesla Model S"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "hry_dina", "text": "Тесла модель Y", "likes": 0, "brands": ["Tesla"], "models": ["Tesla Model Y"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "irina_igorivna", "text": "Audi e-tron", "likes": 0, "brands": ["Audi"], "models": ["Audi e-tron"], "powertrain": "Електро"}, {"user": "annn.pavlenko", "text": "Toyota RAV4/Prado", "likes": 0, "brands": ["Toyota"], "models": ["Toyota RAV4", "Toyota Prado"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "oleksandrvikhman", "text": "Volvo s60", "likes": 0, "brands": ["Volvo"], "models": ["Volvo S60"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "fuck.a1l", "text": "Mercedes w140", "likes": 0, "brands": ["Mercedes-Benz"], "models": ["Mercedes-Benz S-Class"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "jroslavpalachcuk", "text": "Рендж Ровер", "likes": 0, "brands": ["Land Rover"], "models": [], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "sasha.ilkiv", "text": "Ку7 гібрид", "likes": 0, "brands": [], "models": [], "powertrain": "Гібрид"}, {"user": "evgeniy__kovtun", "text": "Land Rover Range Rover", "likes": 0, "brands": ["Land Rover"], "models": [], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "globetrotter.cycling", "text": "Jeep Grand Cherokee 4xe", "likes": 0, "brands": ["Jeep"], "models": ["Jeep Grand Cherokee", "Jeep Cherokee"], "powertrain": "Гібрид"}, {"user": "edward_mard", "text": "Maserati Levante)", "likes": 0, "brands": ["Maserati"], "models": ["Maserati Levante"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "leva_net", "text": "Porsche Cayenne 2017-2018 гібрид", "likes": 0, "brands": ["Porsche"], "models": ["Porsche Cayenne"], "powertrain": "Гібрид"}, {"user": "sanya_pulemet", "text": "Audi SQ5", "likes": 0, "brands": ["Audi"], "models": ["Audi Q5/SQ5"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "as__chernets", "text": "Порш каен або панамера", "likes": 0, "brands": ["Porsche"], "models": ["Porsche Cayenne", "Porsche Panamera"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "maclive360", "text": "Volvo", "likes": 0, "brands": ["Volvo"], "models": [], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "filipchuk_olesia", "text": "Mercedes Matis", "likes": 0, "brands": ["Mercedes-Benz"], "models": [], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "its.german.vibes", "text": "Гольф 7.5 2.0 мотор", "likes": 0, "brands": [], "models": [], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "onime4nik28", "text": "BMW x7 в гарній комплектації", "likes": 0, "brands": ["BMW"], "models": ["BMW X7"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "in.s.port", "text": "Audi Q8", "likes": 0, "brands": ["Audi"], "models": ["Audi Q8/SQ8"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "shevlexx", "text": "Audi rsq8", "likes": 0, "brands": ["Audi"], "models": ["Audi Q8/SQ8"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "volodimiriugai", "text": "Jaguar E-Pace", "likes": 0, "brands": ["Jaguar"], "models": ["Jaguar E-Pace"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "apavlon", "text": "Audi sq8", "likes": 0, "brands": ["Audi"], "models": ["Audi Q8/SQ8"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "bodya_adamenko", "text": "Ауди q5/q7", "likes": 0, "brands": ["Audi"], "models": ["Audi Q7", "Audi Q5/SQ5"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "dmitriy.kolesnyk", "text": "Porsche Cayenne", "likes": 0, "brands": ["Porsche"], "models": ["Porsche Cayenne"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "lud_mila2093", "text": "Аudl 8", "likes": 0, "brands": ["Audi"], "models": [], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "olehsribnyi", "text": "Suzuki jimny", "likes": 0, "brands": ["Suzuki"], "models": ["Suzuki Jimny"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "ninabugaichue", "text": "Toyota Rav 4 (XA60)", "likes": 0, "brands": ["Toyota"], "models": ["Toyota RAV4"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "bihun.oleksandr", "text": "кабріолет з жорсткою кришою, і можливо спробуйте дешевші авто але швидше проводити розіграш", "likes": 0, "brands": [], "models": [], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "yurkivivan", "text": "Toyota (гібрид)", "likes": 0, "brands": ["Toyota"], "models": [], "powertrain": "Гібрид"}, {"user": "leshashmarov", "text": "Audi", "likes": 0, "brands": ["Audi"], "models": [], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "vitya_337", "text": "Audi A8", "likes": 0, "brands": ["Audi"], "models": ["Audi A8"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "oleksandr.8294", "text": "Audi Q5", "likes": 0, "brands": ["Audi"], "models": ["Audi Q5/SQ5"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "generallisiy", "text": "Audi Q7", "likes": 0, "brands": ["Audi"], "models": ["Audi Q7"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "ya_mozhu_vse", "text": "Audi SQ5 FY", "likes": 0, "brands": ["Audi"], "models": ["Audi Q5/SQ5"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "6_vlad_reva_9", "text": "Якийсь кабріолет, незабаром літо", "likes": 0, "brands": [], "models": [], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "igorgranovskyi", "text": "Toyota CH-R Hybrid GR Sport 2022-2023", "likes": 0, "brands": ["Toyota"], "models": ["Toyota C-HR"], "powertrain": "Гібрид"}, {"user": "pavlo.fedchuk", "text": "Toyota RAV 4", "likes": 0, "brands": ["Toyota"], "models": ["Toyota RAV4"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "_mrs__uliana_", "text": "Audi e-tron", "likes": 0, "brands": ["Audi"], "models": ["Audi e-tron"], "powertrain": "Електро"}, {"user": "endasiel", "text": "BMW 330e Hybrid", "likes": 0, "brands": ["BMW"], "models": ["BMW 3 Series"], "powertrain": "Гібрид"}, {"user": "popovich.slavik", "text": "Мерседес V-Class", "likes": 0, "brands": ["Mercedes-Benz"], "models": ["Mercedes-Benz V-Class"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "oleg_perebeynis", "text": "BMW X7 G07", "likes": 0, "brands": ["BMW"], "models": ["BMW X7"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "fanberezhany", "text": "Toyota sequoia 3.5 I force max ECT-i 2024", "likes": 0, "brands": ["Toyota"], "models": ["Toyota Sequoia"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "lyubovkolbasova", "text": "Audi плагін гібрид в білому кольорі", "likes": 0, "brands": ["Audi"], "models": [], "powertrain": "Гібрид"}, {"user": "y.pavliuk", "text": "Аудіо е трон", "likes": 0, "brands": ["Audi"], "models": [], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "oleh_garnysh", "text": "dodge challenger", "likes": 0, "brands": ["Dodge"], "models": ["Dodge Challenger"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "vladmostenskii", "text": "Chrysler Pacifica Hybrid або Lexus RX hybrid", "likes": 0, "brands": ["Lexus", "Chrysler"], "models": ["Lexus RX", "Chrysler Pacifica"], "powertrain": "Гібрид"}, {"user": "_omelchenko_15_11_", "text": "Знову BMW X5", "likes": 0, "brands": ["BMW"], "models": ["BMW X5"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "andrii.yeromenko", "text": "Toyota RAV4 Hybrid", "likes": 0, "brands": ["Toyota"], "models": ["Toyota RAV4"], "powertrain": "Гібрид"}, {"user": "au_gelo", "text": "Volkswagen Multivan", "likes": 0, "brands": ["Volkswagen"], "models": ["Volkswagen Multivan"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "ira__kyrylenko", "text": "Volkswagen Touareg", "likes": 0, "brands": ["Volkswagen"], "models": ["Volkswagen Touareg"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "housebrow_doretska_pm_academy", "text": "Автомобіль JETOUR Т2", "likes": 0, "brands": ["JETOUR"], "models": [], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "kord_viktor", "text": "Volkswagen Golf R VIII", "likes": 0, "brands": ["Volkswagen"], "models": ["Volkswagen Golf"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "kycherykartem", "text": "Фольксваген таурег", "likes": 0, "brands": ["Volkswagen"], "models": ["Volkswagen Touareg"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "viacheslav_barkov_", "text": "Audi Q8", "likes": 0, "brands": ["Audi"], "models": ["Audi Q8/SQ8"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "alina_valerivna_psy", "text": "Audi sq8", "likes": 0, "brands": ["Audi"], "models": ["Audi Q8/SQ8"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "_prosto_sup_", "text": "Ford GT 40", "likes": 0, "brands": ["Ford"], "models": ["Ford GT40"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "carat926", "text": "Toyota RAV 4 гібрид", "likes": 0, "brands": ["Toyota"], "models": ["Toyota RAV4"], "powertrain": "Гібрид"}, {"user": "demchenkomarya", "text": "щось середнє, але нове. Не Porsche чи Mercedes", "likes": 0, "brands": ["Porsche", "Mercedes-Benz"], "models": [], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "nazaryus", "text": "Хочу бачити Mercedes електрокар", "likes": 0, "brands": ["Mercedes-Benz"], "models": [], "powertrain": "Електро"}, {"user": "msalamakha", "text": "Cupra Formentor", "likes": 0, "brands": ["Cupra"], "models": ["Cupra Formentor"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "slavikkholod26", "text": "Мазда mx-5", "likes": 0, "brands": ["Mazda"], "models": ["Mazda MX-5"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "zakharchuk.vlad", "text": "Audi q8 або sq8", "likes": 0, "brands": ["Audi"], "models": ["Audi Q8/SQ8"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "_aleksandr_fedan_", "text": "Audi Sq8", "likes": 0, "brands": ["Audi"], "models": ["Audi Q8/SQ8"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "kolia.makushak", "text": "BMW F36, 440i", "likes": 0, "brands": ["BMW"], "models": ["BMW 4 Series"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "kolia.makushak", "text": "Судячи з фотки, Mercedes c-class", "likes": 0, "brands": ["Mercedes-Benz"], "models": ["Mercedes-Benz C-Class"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "levitskijalexey", "text": "Має бути щось цікаве, як колись з Eclipse", "likes": 0, "brands": [], "models": [], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "raadetska", "text": "BMWX5 G05", "likes": 0, "brands": [], "models": [], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "zefir.kvity", "text": "Audi Q8", "likes": 0, "brands": ["Audi"], "models": ["Audi Q8/SQ8"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "podgaiko_a", "text": "Audi A7 Sportback", "likes": 0, "brands": ["Audi"], "models": ["Audi A7"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "zheka0429", "text": "Zeekr 001", "likes": 0, "brands": ["Zeekr"], "models": [], "powertrain": "Електро"}, {"user": "meat.jerki", "text": "Porsche Cayenne", "likes": 0, "brands": ["Porsche"], "models": ["Porsche Cayenne"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "zheka0429", "text": "Jaguar I-Pace", "likes": 0, "brands": ["Jaguar"], "models": ["Jaguar I-Pace"], "powertrain": "Електро"}, {"user": "wow.decor.art", "text": "Audi e-tron", "likes": 0, "brands": ["Audi"], "models": ["Audi e-tron"], "powertrain": "Електро"}, {"user": "polovyna", "text": "Lexus ES hybrid", "likes": 0, "brands": ["Lexus"], "models": ["Lexus ES"], "powertrain": "Гібрид"}, {"user": "zheka0429", "text": "Ford Mustang Mach-E", "likes": 0, "brands": ["Ford"], "models": ["Ford Mustang"], "powertrain": "Електро"}, {"user": "dima_bilokuryi", "text": "BMW 5 серія гібрид", "likes": 0, "brands": ["BMW"], "models": ["BMW 5 Series"], "powertrain": "Гібрид"}, {"user": "igor_ok511", "text": "Каєн 3.6", "likes": 0, "brands": [], "models": [], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "nails_heaven.kh", "text": "Tesla Model S", "likes": 0, "brands": ["Tesla"], "models": ["Tesla Model S"], "powertrain": "Електро"}, {"user": "art_tariko", "text": "zeekr", "likes": 0, "brands": ["Zeekr"], "models": [], "powertrain": "Електро"}, {"user": "titanserg", "text": "Dodge ram 3 huracain (або duramax)", "likes": 0, "brands": ["Dodge"], "models": ["Dodge Ram"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "denis._.mazur", "text": "Jeep Grand Cherokee", "likes": 0, "brands": ["Jeep"], "models": ["Jeep Grand Cherokee", "Jeep Cherokee"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "tut.on.common", "text": "E-coupe", "likes": 0, "brands": [], "models": [], "powertrain": "Електро"}, {"user": "kolia_kiev", "text": "ЗАЗ з двигуном від 911", "likes": 0, "brands": ["ZAZ"], "models": [], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "shamray_sasha88", "text": "Land Cruiser 300", "likes": 0, "brands": [], "models": [], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "tina_v0601", "text": "Порш макан", "likes": 0, "brands": ["Porsche"], "models": ["Porsche Macan"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "loha8kill", "text": "Audi RS 3 Quattro", "likes": 0, "brands": ["Audi"], "models": ["Audi RS3"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "_aleks__ander_", "text": "Tesla", "likes": 0, "brands": ["Tesla"], "models": [], "powertrain": "Електро"}, {"user": "aleksandr__9966", "text": "Audi s6", "likes": 0, "brands": ["Audi"], "models": ["Audi S6"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "nadiia_boholiubova", "text": "Тойота Пріус", "likes": 0, "brands": ["Toyota"], "models": ["Toyota Prius"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "igor1.911", "text": "bmw g30 hybrid", "likes": 0, "brands": ["BMW"], "models": ["BMW 5 Series"], "powertrain": "Гібрид"}, {"user": "b584265", "text": "Touareg", "likes": 0, "brands": [], "models": [], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "b584265", "text": "Volvo xc60", "likes": 0, "brands": ["Volvo"], "models": ["Volvo XC60"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "rasta_0", "text": "Audi e-tron", "likes": 0, "brands": ["Audi"], "models": ["Audi e-tron"], "powertrain": "Електро"}, {"user": "b584265", "text": "WV tayron", "likes": 0, "brands": ["Volkswagen"], "models": ["Volkswagen Tayron"], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "b584265", "text": "Raw4", "likes": 0, "brands": [], "models": [], "powertrain": "Не вказано (ймовірно бензин)"}, {"user": "pavlo.fedchuk", "text": "Lexus ES Hybrid", "likes": 0, "brands": ["Lexus"], "models": ["Lexus ES"], "powertrain": "Гібрид"}, {"user": "k.nagorniy2019", "text": "VAG group з двигуном 3.0 TDI і 8-ми ступеневою коробкою", "likes": 0, "brands": ["Volkswagen"], "models": [], "powertrain": "Дизель"}, {"user": "anatoliug", "text": "Volvo v60", "likes": 0, "brands": ["Volvo"], "models": ["Volvo V60"], "powertrain": "Не вказано (ймовірно бензин)"}];
+
+const ORANGE = '#ff6b35';
+const YELLOW = '#ffd23f';
+const BLUE = '#3498db';
+const GREEN = '#27ae60';
+const PURPLE = '#9b59b6';
+const RED = '#e74c3c';
+const TEAL = '#16a085';
+const PALETTE = [ORANGE, YELLOW, BLUE, GREEN, PURPLE, RED, TEAL, '#e67e22', '#2ecc71', '#34495e', '#d35400', '#c0392b'];
+
+Chart.defaults.color = '#8a93a6';
+Chart.defaults.borderColor = '#262e44';
+Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+
+// Brand chart (top 10)
+const brandEntries = Object.entries(BRAND_DATA).slice(0, 10);
+new Chart(document.getElementById('brandChart'), {
+  type: 'bar',
+  data: { labels: brandEntries.map(e => e[0]), datasets: [{ data: brandEntries.map(e => e[1]), backgroundColor: ORANGE, borderRadius: 6 }] },
+  options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { grid: { color: '#20283d' } }, x: { grid: { display: false } } } }
+});
+
+// Model chart (top 15 horizontal)
+const modelEntries = Object.entries(MODEL_DATA).slice(0, 15);
+new Chart(document.getElementById('modelChart'), {
+  type: 'bar',
+  data: { labels: modelEntries.map(e => e[0]), datasets: [{ data: modelEntries.map(e => e[1]), backgroundColor: YELLOW, borderRadius: 4 }] },
+  options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { color: '#20283d' } }, y: { grid: { display: false } } } }
+});
+
+// Body
+const bodyEntries = Object.entries(BODY_DATA);
+new Chart(document.getElementById('bodyChart'), {
+  type: 'doughnut',
+  data: { labels: bodyEntries.map(e => e[0]), datasets: [{ data: bodyEntries.map(e => e[1]), backgroundColor: PALETTE }] },
+  options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'right', labels: { boxWidth: 10, font: { size: 11 } } } } }
+});
+
+// Powertrain
+const ptEntries = Object.entries(POWERTRAIN_DATA);
+new Chart(document.getElementById('powertrainChart'), {
+  type: 'doughnut',
+  data: { labels: ptEntries.map(e => e[0]), datasets: [{ data: ptEntries.map(e => e[1]), backgroundColor: [ORANGE, GREEN, BLUE, PURPLE, RED] }] },
+  options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 11 } } } } }
+});
+
+// Country
+const countryEntries = Object.entries(COUNTRY_DATA);
+new Chart(document.getElementById('countryChart'), {
+  type: 'pie',
+  data: { labels: countryEntries.map(e => e[0]), datasets: [{ data: countryEntries.map(e => e[1]), backgroundColor: PALETTE }] },
+  options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 11 } } } } }
+});
+
+// Price
+const priceEntries = Object.entries(PRICE_DATA);
+new Chart(document.getElementById('priceChart'), {
+  type: 'bar',
+  data: { labels: priceEntries.map(e => e[0]), datasets: [{ data: priceEntries.map(e => e[1]), backgroundColor: [GREEN, ORANGE, YELLOW, RED, BLUE], borderRadius: 6 }] },
+  options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { grid: { color: '#20283d' } }, x: { grid: { display: false } } } }
+});
+
+// Sentiment
+const sentEntries = Object.entries(SENTIMENT_DATA);
+const sentLabels = { 'excitement': 'Збудження («🔥», «цікаво»)', 'positive_emoji': 'Позитивні емодзі', 'request_cheaper_new': 'Просять дешевше/нове' };
+new Chart(document.getElementById('sentimentChart'), {
+  type: 'bar',
+  data: { labels: sentEntries.map(e => sentLabels[e[0]] || e[0]), datasets: [{ data: sentEntries.map(e => e[1]), backgroundColor: [PURPLE, YELLOW, RED], borderRadius: 6 }] },
+  options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { grid: { color: '#20283d' } }, x: { grid: { display: false } } } }
+});
+
+// ---- Explorer ----
+const brands = [...new Set(COMMENTS.flatMap(c => c.brands))].sort();
+const powertrains = [...new Set(COMMENTS.map(c => c.powertrain))];
+const brandFilter = document.getElementById('brandFilter');
+const ptFilter = document.getElementById('powertrainFilter');
+brands.forEach(b => { const o = document.createElement('option'); o.value = b; o.textContent = b; brandFilter.appendChild(o); });
+powertrains.forEach(p => { const o = document.createElement('option'); o.value = p; o.textContent = p; ptFilter.appendChild(o); });
+
+function renderComments() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  const bf = brandFilter.value;
+  const pf = ptFilter.value;
+  const filtered = COMMENTS.filter(c => {
+    if (bf && !c.brands.includes(bf)) return false;
+    if (pf && c.powertrain !== pf) return false;
+    if (q && !c.text.toLowerCase().includes(q) && !c.user.toLowerCase().includes(q)) return false;
+    return true;
+  });
+  const tbody = document.getElementById('commentsBody');
+  tbody.innerHTML = filtered.map(c => {
+    const badges = c.models.map(m => '<span class="badge">' + m + '</span>').join('');
+    const ptBadge = c.powertrain === 'Гібрид' ? '<span class="badge yellow">Гібрид</span>' :
+                    c.powertrain === 'Електро' ? '<span class="badge green">Електро</span>' :
+                    c.powertrain === 'Дизель' ? '<span class="badge">Дизель</span>' : '';
+    return `<tr>
+      <td><span class="user">@${c.user}</span></td>
+      <td>${escapeHtml(c.text)}</td>
+      <td>${badges} ${ptBadge}</td>
+      <td><span class="likes">❤️ ${c.likes}</span></td>
+    </tr>`;
+  }).join('');
+  document.getElementById('resultsCount').textContent = `${filtered.length} з ${COMMENTS.length}`;
+}
+function escapeHtml(s) { return s.replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[ch]); }
+document.getElementById('searchInput').addEventListener('input', renderComments);
+brandFilter.addEventListener('change', renderComments);
+ptFilter.addEventListener('change', renderComments);
+renderComments();
+</script>
+<div style="text-align:center;padding:15px;color:#666;font-size:12px">Last updated: 20.04.2026 10:31 CET</div></body>
+</html>
