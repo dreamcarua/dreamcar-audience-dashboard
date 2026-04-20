@@ -1,163 +1,163 @@
 {
-  "total_comments": 128,
-  "total_likes": 33,
+  "total_comments": 223,
+  "total_likes": 117,
   "like_weight": 0.3,
   "weighting_note": "Кожен лайк додає 0.3 до ваги коментаря",
-  "unique_users": 121,
+  "unique_users": 196,
   "brand_counter": {
-    "Audi": 29.5,
-    "Volkswagen": 14.1,
-    "Toyota": 13.8,
-    "Mercedes-Benz": 11.2,
-    "BMW": 9.6,
-    "Porsche": 8.3,
-    "Tesla": 8.2,
-    "Volvo": 6.6,
+    "Audi": 60.5,
+    "Toyota": 27.1,
+    "BMW": 21.6,
+    "Volkswagen": 19.1,
+    "Porsche": 14.2,
+    "Tesla": 14.1,
+    "Mercedes-Benz": 13.2,
+    "Volvo": 9.9,
+    "Land Rover": 8.5,
+    "Lexus": 6.9,
     "Jeep": 5.6,
-    "Dodge": 4.3,
-    "Land Rover": 3.3,
-    "Ford": 3.3,
-    "Lexus": 3.0,
-    "Jaguar": 2.0,
-    "Zeekr": 2.0,
+    "Dodge": 5.3,
+    "Ford": 5.3,
+    "Zeekr": 4.9,
+    "Honda": 3.3,
+    "Jaguar": 3.0,
+    "Cupra": 2.3,
+    "Mazda": 2.0,
     "Infiniti": 1.3,
-    "Honda": 1.0,
     "Maserati": 1.0,
     "Suzuki": 1.0,
     "Chrysler": 1.0,
     "JETOUR": 1.0,
-    "Cupra": 1.0,
-    "Mazda": 1.0,
     "ZAZ": 1.0
   },
   "model_counter": {
-    "Audi Q8/SQ8": 9.3,
-    "Toyota RAV4": 7.6,
-    "Porsche Cayenne": 6.3,
-    "Audi e-tron": 5.3,
-    "Volkswagen Touareg": 5.2,
+    "Audi Q8/SQ8": 20.1,
+    "Toyota RAV4": 15.6,
+    "Audi e-tron": 13.6,
+    "Porsche Cayenne": 10.2,
+    "Volkswagen Touareg": 7.2,
+    "Audi Q7": 6.5,
+    "Audi Q5/SQ5": 5.8,
+    "BMW X5": 5.2,
+    "Volvo XC90": 4.9,
+    "Tesla Model X": 4.6,
     "Jeep Cherokee": 4.6,
-    "Audi Q5/SQ5": 4.0,
+    "Lexus RX": 4.3,
+    "Porsche Macan": 4.3,
+    "Audi A7": 3.9,
     "Jeep Grand Cherokee": 3.3,
+    "Volkswagen Golf": 3.3,
+    "Dodge Challenger": 3.3,
+    "Tesla Model S": 3.0,
     "Volkswagen Atlas": 2.9,
-    "Volvo XC90": 2.6,
-    "BMW 4 Series": 2.3,
-    "Porsche Macan": 2.3,
-    "BMW X5": 2.3,
+    "BMW 4 Series": 2.6,
+    "BMW 5 Series": 2.6,
+    "Lexus ES": 2.6,
+    "BMW X7": 2.3,
     "Ford Mustang": 2.3,
-    "Volkswagen Golf": 2.3,
-    "Dodge Challenger": 2.3,
+    "Tesla Model 3": 2.2,
     "Toyota Camry": 2.2,
-    "Tesla Model S": 2.0,
-    "BMW X7": 2.0,
-    "Audi Q7": 2.0,
-    "Lexus ES": 2.0,
-    "BMW 5 Series": 2.0,
-    "Tesla Model 3": 1.6,
-    "Toyota Highlander": 1.3,
+    "Toyota Prado": 2.0,
+    "Volkswagen Multivan": 2.0,
+    "Mazda MX-5": 2.0,
+    "Audi A8": 1.6,
+    "Audi S6": 1.6,
+    "Cupra Formentor": 1.3,
+    "BMW 3 Series": 1.3,
+    "Porsche Panamera": 1.3,
+    "Audi RS3": 1.3,
+    "Toyota Sequoia": 1.3,
     "Infiniti QX55": 1.3,
-    "Tesla Model X": 1.3,
+    "Toyota Highlander": 1.3,
     "Mercedes-Benz GLC": 1.3,
     "Honda CR-V": 1.0,
     "Jeep Compass": 1.0,
     "Dodge Charger": 1.0,
     "Volkswagen Passat": 1.0,
     "Tesla Model Y": 1.0,
-    "Toyota Prado": 1.0,
     "Volvo S60": 1.0,
     "Mercedes-Benz S-Class": 1.0,
     "Maserati Levante": 1.0,
-    "Porsche Panamera": 1.0,
     "Jaguar E-Pace": 1.0,
     "Suzuki Jimny": 1.0,
-    "Audi A8": 1.0,
     "Toyota C-HR": 1.0,
-    "BMW 3 Series": 1.0,
     "Mercedes-Benz V-Class": 1.0,
-    "Toyota Sequoia": 1.0,
-    "Lexus RX": 1.0,
     "Chrysler Pacifica": 1.0,
-    "Volkswagen Multivan": 1.0,
     "Ford GT40": 1.0,
-    "Cupra Formentor": 1.0,
-    "Mazda MX-5": 1.0,
     "Mercedes-Benz C-Class": 1.0,
-    "Audi A7": 1.0,
     "Jaguar I-Pace": 1.0,
     "Dodge Ram": 1.0,
-    "Audi RS3": 1.0,
-    "Audi S6": 1.0,
     "Toyota Prius": 1.0,
     "Volvo XC60": 1.0,
     "Volkswagen Tayron": 1.0,
     "Volvo V60": 1.0
   },
   "body_counter": {
-    "SUV/Кросовер": 71.6,
-    "Седан": 16.8,
-    "SUV/Кросовер (електро)": 6.3,
-    "Купе/Спорткар": 4.6,
-    "Кабріолет/Родстер": 3.0,
-    "Купе": 2.3,
-    "Хетчбек": 2.3,
-    "Мінівен/Мікроавтобус": 2.0,
-    "Седан/Хетчбек": 2.0,
+    "SUV/Кросовер": 118.3,
+    "Седан": 21.1,
+    "SUV/Кросовер (електро)": 14.6,
+    "Купе/Спорткар": 5.6,
+    "Кабріолет/Родстер": 4.0,
+    "Ліфтбек": 3.9,
+    "Хетчбек": 3.3,
+    "Мінівен/Мікроавтобус": 3.0,
+    "Купе": 2.6,
+    "Седан/Хетчбек": 2.3,
+    "Родстер/Кабріолет": 2.0,
+    "Седан/Ліфтбек": 1.3,
     "Седан/Спорткар": 1.0,
-    "Седан/Ліфтбек": 1.0,
     "SUV/Позашляховик": 1.0,
     "Мінівен": 1.0,
     "Спорткар": 1.0,
-    "Родстер/Кабріолет": 1.0,
-    "Ліфтбек": 1.0,
     "Пікап": 1.0,
     "Універсал": 1.0
   },
   "powertrain_counter": {
-    "Не вказано (ймовірно бензин)": 100.6,
-    "Гібрид": 20.1,
-    "Електро": 16.2,
+    "Не вказано (ймовірно бензин)": 192.9,
+    "Електро": 32.3,
+    "Гібрид": 31.9,
     "Дизель": 1.0
   },
   "country_counter": {
-    "Німеччина": 72.7,
-    "США": 22.4,
-    "Японія": 21.1,
-    "Швеція": 6.6,
-    "Велика Британія": 5.3,
-    "Китай": 3.0,
+    "Німеччина": 128.6,
+    "Японія": 41.6,
+    "США": 31.3,
+    "Велика Британія": 11.5,
+    "Швеція": 9.9,
+    "Китай": 5.9,
+    "Іспанія": 2.3,
     "Італія": 1.0,
-    "Іспанія": 1.0,
     "Україна": 1.0
   },
   "tier_counter": {
-    "Premium": 63.2,
-    "Mass": 22.1,
-    "Mass/Premium": 19.7,
-    "EV-Premium": 10.2,
-    "Luxury/Sport": 8.3,
-    "Mass/Sport": 4.3,
-    "Premium/Luxury": 3.3,
+    "Premium": 116.4,
+    "Mass": 40.7,
+    "Mass/Premium": 24.7,
+    "EV-Premium": 19.0,
+    "Luxury/Sport": 14.2,
+    "Premium/Luxury": 8.5,
+    "Mass/Sport": 5.3,
+    "Premium/Sport": 2.3,
     "Luxury": 1.0,
-    "Premium/Sport": 1.0,
     "Mass/Budget": 1.0
   },
   "price_counter": {
-    "Premium ($40-80k)": 62.2,
-    "Mass ($20-40k)": 29.3,
-    "Luxury ($80k+)": 14.6,
-    "Mass+ ($35-55k)": 10.8
+    "Premium ($40-80k)": 110.2,
+    "Mass ($20-40k)": 40.3,
+    "Luxury ($80k+)": 21.1,
+    "Mass+ ($35-55k)": 12.4
   },
   "sentiment_counter": {
-    "excitement": 4.9,
-    "positive_emoji": 3.5,
-    "request_cheaper_new": 2.0
+    "positive_emoji": 38.7,
+    "excitement": 21.6,
+    "request_cheaper_new": 3.0
   },
-  "cabriolet_mentions": 3.0,
+  "cabriolet_mentions": 4.0,
   "processed": [
     {
       "user": "sergeikusiaka89",
       "text": "Аудіо е-tron🔥🔥🔥",
-      "likes": 3,
+      "likes": 5,
       "brands": [
         "Audi"
       ],
@@ -169,16 +169,849 @@
       ]
     },
     {
-      "user": "igor_mysnyk",
-      "text": "Toyota Camry xv70 hybrid",
-      "likes": 4,
+      "user": "rostivchenko",
+      "text": "Можливо BMW 430 F32)",
+      "likes": 2,
+      "brands": [
+        "BMW"
+      ],
+      "models": [
+        "BMW 4 Series"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "_bogdanov_rostislav_",
+      "text": "BMW X5 E70 для кєнтіка братіка @vdenishchuk 🙌",
+      "likes": 2,
+      "brands": [
+        "BMW"
+      ],
+      "models": [
+        "BMW X5"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": [
+        "positive_emoji"
+      ]
+    },
+    {
+      "user": "yur4ik_pustovoit",
+      "text": "Незабаром літо. А на літо потрібно щось яскраве, щось таке що дарує емоції, драйв, щось таке що дарує неймовірні враження, як для водія так і для оточуючих, щось таке як BMW M8",
+      "likes": 1,
+      "brands": [
+        "BMW"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": [
+        "excitement"
+      ]
+    },
+    {
+      "user": "burov_ss",
+      "text": "Порш Каен!",
+      "likes": 2,
+      "brands": [
+        "Porsche"
+      ],
+      "models": [
+        "Porsche Cayenne"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "dima_bilokuryi",
+      "text": "BMW 5 серія гібрид ❤️",
+      "likes": 1,
+      "brands": [
+        "BMW"
+      ],
+      "models": [
+        "BMW 5 Series"
+      ],
+      "powertrain": "Гібрид",
+      "sentiment": [
+        "positive_emoji"
+      ]
+    },
+    {
+      "user": "looklikepuma",
+      "text": "🔥🔥🔥🔥🔥🔥БеЕМве  М 4🔥🔥🔥🔥🔥",
+      "likes": 1,
+      "brands": [],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": [
+        "positive_emoji",
+        "excitement"
+      ]
+    },
+    {
+      "user": "msalamakha",
+      "text": "Cupra Formentor",
+      "likes": 1,
+      "brands": [
+        "Cupra"
+      ],
+      "models": [
+        "Cupra Formentor"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "endasiel",
+      "text": "BMW 330e Hybrid",
+      "likes": 1,
+      "brands": [
+        "BMW"
+      ],
+      "models": [
+        "BMW 3 Series"
+      ],
+      "powertrain": "Гібрид",
+      "sentiment": []
+    },
+    {
+      "user": "_orange_woolf.7777_",
+      "text": "BMW X 6  повна комплектація ❤️",
+      "likes": 1,
+      "brands": [
+        "BMW"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": [
+        "positive_emoji"
+      ]
+    },
+    {
+      "user": "rasta_0",
+      "text": "Audi e-tron",
+      "likes": 2,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi e-tron"
+      ],
+      "powertrain": "Електро",
+      "sentiment": []
+    },
+    {
+      "user": "y.pavliuk",
+      "text": "Аудіо е трон",
+      "likes": 1,
+      "brands": [
+        "Audi"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "serj_gatailo",
+      "text": "Black BMW X5 F95 яку я виграю цього  разу 🔥🔥🔥",
+      "likes": 1,
+      "brands": [
+        "BMW"
+      ],
+      "models": [
+        "BMW X5"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": [
+        "positive_emoji",
+        "excitement"
+      ]
+    },
+    {
+      "user": "anuta_kudrya",
+      "text": "Volvo xc90",
+      "likes": 2,
+      "brands": [
+        "Volvo"
+      ],
+      "models": [
+        "Volvo XC90"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "oleg_perebeynis",
+      "text": "BMW  X7 G07",
+      "likes": 1,
+      "brands": [
+        "BMW"
+      ],
+      "models": [
+        "BMW X7"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "peta2045",
+      "text": "Ауді Q 7",
+      "likes": 1,
+      "brands": [
+        "Audi"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "igor1.911",
+      "text": "bmw g30 hybrid",
+      "likes": 1,
+      "brands": [
+        "BMW"
+      ],
+      "models": [
+        "BMW 5 Series"
+      ],
+      "powertrain": "Гібрид",
+      "sentiment": []
+    },
+    {
+      "user": "sofia_pentagon",
+      "text": "BMW X5 xDrive50e",
+      "likes": 1,
+      "brands": [
+        "BMW"
+      ],
+      "models": [
+        "BMW X5"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "jroslavpalachcuk",
+      "text": "Рендж 🔥Ровер 😍",
+      "likes": 2,
+      "brands": [
+        "Land Rover"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": [
+        "positive_emoji",
+        "excitement"
+      ]
+    },
+    {
+      "user": "oleksandr.8294",
+      "text": "Audi Q5",
+      "likes": 1,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi Q5/SQ5"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "sanya_pulemet",
+      "text": "Audi SQ5",
+      "likes": 2,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi Q5/SQ5"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "generallisiy",
+      "text": "Audi Q7",
+      "likes": 2,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi Q7"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "dmitriybezshtanko",
+      "text": "Audi e-tron",
+      "likes": 1,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi e-tron"
+      ],
+      "powertrain": "Електро",
+      "sentiment": []
+    },
+    {
+      "user": "melanika44",
+      "text": "Audi Q7",
+      "likes": 1,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi Q7"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "viacheslav_barkov_",
+      "text": "Audi  Q8",
+      "likes": 3,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi Q8/SQ8"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "in.s.port",
+      "text": "Audi Q8",
+      "likes": 2,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi Q8/SQ8"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "kurkolarisa",
+      "text": "Audi Q7",
+      "likes": 1,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi Q7"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "ya_mozhu_vse",
+      "text": "Audi SQ5 FY",
+      "likes": 2,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi Q5/SQ5"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "mironov8622",
+      "text": "Audi e-tron",
+      "likes": 1,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi e-tron"
+      ],
+      "powertrain": "Електро",
+      "sentiment": []
+    },
+    {
+      "user": "bodya_adamenko",
+      "text": "Ауди q5/q7",
+      "likes": 1,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi Q7",
+        "Audi Q5/SQ5"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "as__chernets",
+      "text": "Порш каен або панамера 👌",
+      "likes": 1,
+      "brands": [
+        "Porsche"
+      ],
+      "models": [
+        "Porsche Cayenne",
+        "Porsche Panamera"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": [
+        "positive_emoji"
+      ]
+    },
+    {
+      "user": "vitya_337",
+      "text": "Audi A8",
+      "likes": 2,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi A8"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "aleksandr__9966",
+      "text": "Audi s6",
+      "likes": 2,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi S6"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "igor_eppel",
+      "text": "Audi Q8",
+      "likes": 1,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi Q8/SQ8"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "wow.decor.art",
+      "text": "Audi e-tron",
+      "likes": 2,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi e-tron"
+      ],
+      "powertrain": "Електро",
+      "sentiment": []
+    },
+    {
+      "user": "vladimir___red",
+      "text": "Audi a7",
+      "likes": 1,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi A7"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "zefir.kvity",
+      "text": "Audi Q8",
+      "likes": 2,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi Q8/SQ8"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "podgaiko_a",
+      "text": "Audi A7 Sportback",
+      "likes": 2,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi A7"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "irina_igorivna",
+      "text": "Audi e-tron",
+      "likes": 3,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi e-tron"
+      ],
+      "powertrain": "Електро",
+      "sentiment": []
+    },
+    {
+      "user": "lud_mila2093",
+      "text": "Аudl 8",
+      "likes": 1,
+      "brands": [
+        "Audi"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "raya.5071",
+      "text": "Ауді Q8",
+      "likes": 1,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi Q8/SQ8"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "art_tariko",
+      "text": "zeekr",
+      "likes": 1,
+      "brands": [
+        "Zeekr"
+      ],
+      "models": [],
+      "powertrain": "Електро",
+      "sentiment": []
+    },
+    {
+      "user": "_aleksandr_fedan_",
+      "text": "Audi Sq8",
+      "likes": 1,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi Q8/SQ8"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "__k.a.i.f____",
+      "text": "Honda civic type r",
+      "likes": 1,
+      "brands": [
+        "Honda"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "loha8kill",
+      "text": "Audi RS 3 Quattro 🔥🔥🔥",
+      "likes": 1,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi RS3"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": [
+        "positive_emoji",
+        "excitement"
+      ]
+    },
+    {
+      "user": "white_whale_ua",
+      "text": "А шо , якщо розігріта декілька пріусів",
+      "likes": 0,
+      "brands": [],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "alina_valerivna_psy",
+      "text": "Audi sq8🥹",
+      "likes": 1,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi Q8/SQ8"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": [
+        "positive_emoji"
+      ]
+    },
+    {
+      "user": "polovyna",
+      "text": "Lexus ES hybrid",
+      "likes": 1,
+      "brands": [
+        "Lexus"
+      ],
+      "models": [
+        "Lexus ES"
+      ],
+      "powertrain": "Гібрид",
+      "sentiment": []
+    },
+    {
+      "user": "fanberezhany",
+      "text": "Toyota sequoia 3.5 I force max ECT-i 2024",
+      "likes": 1,
       "brands": [
         "Toyota"
       ],
       "models": [
-        "Toyota Camry"
+        "Toyota Sequoia"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "sofia_pentagon",
+      "text": "Range Rover Sport P460e (Hybrid)",
+      "likes": 1,
+      "brands": [
+        "Land Rover"
+      ],
+      "models": [],
+      "powertrain": "Гібрид",
+      "sentiment": []
+    },
+    {
+      "user": "zheka0429",
+      "text": "Zeekr 001",
+      "likes": 1,
+      "brands": [
+        "Zeekr"
+      ],
+      "models": [],
+      "powertrain": "Електро",
+      "sentiment": []
+    },
+    {
+      "user": "s_seric",
+      "text": "Zeekr 001",
+      "likes": 1,
+      "brands": [
+        "Zeekr"
+      ],
+      "models": [],
+      "powertrain": "Електро",
+      "sentiment": []
+    },
+    {
+      "user": "pavlo.fedchuk",
+      "text": "Lexus ES Hybrid",
+      "likes": 1,
+      "brands": [
+        "Lexus"
+      ],
+      "models": [
+        "Lexus ES"
       ],
       "powertrain": "Гібрид",
+      "sentiment": []
+    },
+    {
+      "user": "positive_mentor.ua",
+      "text": "Lexus RX 350h",
+      "likes": 1,
+      "brands": [
+        "Lexus"
+      ],
+      "models": [
+        "Lexus RX"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "_mrs__uliana_",
+      "text": "Audi e-tron❤️",
+      "likes": 2,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi e-tron"
+      ],
+      "powertrain": "Електро",
+      "sentiment": [
+        "positive_emoji"
+      ]
+    },
+    {
+      "user": "white_rav3n",
+      "text": "Nissan 350Z",
+      "likes": 2,
+      "brands": [],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "olenamaryniak",
+      "text": "Audi Q8",
+      "likes": 2,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi Q8/SQ8"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "millervanea",
+      "text": "Tesla X актуально зараз 😌",
+      "likes": 2,
+      "brands": [
+        "Tesla"
+      ],
+      "models": [
+        "Tesla Model X"
+      ],
+      "powertrain": "Електро",
+      "sentiment": [
+        "positive_emoji"
+      ]
+    },
+    {
+      "user": "apavlon",
+      "text": "Audi sq8😍",
+      "likes": 2,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi Q8/SQ8"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": [
+        "positive_emoji"
+      ]
+    },
+    {
+      "user": "shevlexx",
+      "text": "Audi rsq8",
+      "likes": 2,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi Q8/SQ8"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "k.nastik_",
+      "text": "Range Rover evoque ❤️😍",
+      "likes": 1,
+      "brands": [
+        "Land Rover"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": [
+        "positive_emoji"
+      ]
+    },
+    {
+      "user": "ruslan_horban",
+      "text": "Tesla model 3🙌",
+      "likes": 4,
+      "brands": [
+        "Tesla"
+      ],
+      "models": [
+        "Tesla Model 3"
+      ],
+      "powertrain": "Електро",
+      "sentiment": [
+        "positive_emoji"
+      ]
+    },
+    {
+      "user": "demiurg_god",
+      "text": "Jeep Grand Cherokee WL 4xe Plug-in Hybrid",
+      "likes": 1,
+      "brands": [
+        "Jeep"
+      ],
+      "models": [
+        "Jeep Grand Cherokee",
+        "Jeep Cherokee"
+      ],
+      "powertrain": "Гібрид",
+      "sentiment": []
+    },
+    {
+      "user": "valeriiapitsun",
+      "text": "Volvo XC90",
+      "likes": 1,
+      "brands": [
+        "Volvo"
+      ],
+      "models": [
+        "Volvo XC90"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "dianka.ov",
+      "text": "Infiniti  QX55",
+      "likes": 1,
+      "brands": [
+        "Infiniti"
+      ],
+      "models": [
+        "Infiniti QX55"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "bruda_ga",
+      "text": "Honda CR V",
+      "likes": 0,
+      "brands": [
+        "Honda"
+      ],
+      "models": [
+        "Honda CR-V"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
       "sentiment": []
     },
     {
@@ -196,35 +1029,6 @@
       "sentiment": []
     },
     {
-      "user": "demiurg_god",
-      "text": "Jeep Grand Cherokee WL 4xe Plug-in Hybrid",
-      "likes": 1,
-      "brands": [
-        "Jeep"
-      ],
-      "models": [
-        "Jeep Grand Cherokee",
-        "Jeep Cherokee"
-      ],
-      "powertrain": "Гібрид",
-      "sentiment": []
-    },
-    {
-      "user": "ruslan_horban",
-      "text": "Tesla model 3🙌",
-      "likes": 2,
-      "brands": [
-        "Tesla"
-      ],
-      "models": [
-        "Tesla Model 3"
-      ],
-      "powertrain": "Електро",
-      "sentiment": [
-        "positive_emoji"
-      ]
-    },
-    {
       "user": "yuliia_tymoshenkko",
       "text": "Тойота рав 4 гібрид",
       "likes": 1,
@@ -238,121 +1042,40 @@
       "sentiment": []
     },
     {
-      "user": "pansoroka",
-      "text": "Фольцваген, ренж, тесла, я гадаю що цього разу буде седан",
+      "user": "karpovets777",
+      "text": "Volkswagen Golf R VIII",
       "likes": 1,
-      "brands": [
-        "Volkswagen",
-        "Tesla",
-        "Land Rover"
-      ],
-      "models": [],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
-      "user": "dianka.ov",
-      "text": "Infiniti QX55",
-      "likes": 1,
-      "brands": [
-        "Infiniti"
-      ],
-      "models": [
-        "Infiniti QX55"
-      ],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
-      "user": "nik_poltava",
-      "text": "VW Touareg 2020 року",
-      "likes": 2,
       "brands": [
         "Volkswagen"
       ],
       "models": [
-        "Volkswagen Touareg"
+        "Volkswagen Golf"
       ],
       "powertrain": "Не вказано (ймовірно бензин)",
       "sentiment": []
     },
     {
-      "user": "rostivchenko",
-      "text": "Можливо BMW 430 F32)",
-      "likes": 1,
+      "user": "igor_mysnyk",
+      "text": "Toyota Camry xv70 hybrid",
+      "likes": 4,
       "brands": [
-        "BMW"
+        "Toyota"
       ],
       "models": [
-        "BMW 4 Series"
-      ],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
-      "user": "oksana.dizhak",
-      "text": "Мерседес гібрид, Porsche Macan, Porsche Cayenne",
-      "likes": 1,
-      "brands": [
-        "Porsche",
-        "Mercedes-Benz"
-      ],
-      "models": [
-        "Porsche Cayenne",
-        "Porsche Macan"
+        "Toyota Camry"
       ],
       "powertrain": "Гібрид",
       "sentiment": []
     },
     {
-      "user": "_bogdanov_rostislav_",
-      "text": "BMW X5 E70 для кєнтіка братіка",
+      "user": "slavkovulik",
+      "text": "dodge challenger",
       "likes": 1,
       "brands": [
-        "BMW"
+        "Dodge"
       ],
       "models": [
-        "BMW X5"
-      ],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
-      "user": "alina.r_shevchuk",
-      "text": "Volkswagen Touareg або Atlas",
-      "likes": 2,
-      "brands": [
-        "Volkswagen"
-      ],
-      "models": [
-        "Volkswagen Touareg",
-        "Volkswagen Atlas"
-      ],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
-      "user": "millervanea",
-      "text": "Tesla X актуально зараз",
-      "likes": 1,
-      "brands": [
-        "Tesla"
-      ],
-      "models": [
-        "Tesla Model X"
-      ],
-      "powertrain": "Електро",
-      "sentiment": []
-    },
-    {
-      "user": "bruda_ga",
-      "text": "Honda CR V",
-      "likes": 0,
-      "brands": [
-        "Honda"
-      ],
-      "models": [
-        "Honda CR-V"
+        "Dodge Challenger"
       ],
       "powertrain": "Не вказано (ймовірно бензин)",
       "sentiment": []
@@ -373,7 +1096,20 @@
       "sentiment": []
     },
     {
-      "user": "natalja.zorja",
+      "user": "kret_rehab",
+      "text": "Audi e-tron Sportback",
+      "likes": 1,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi e-tron"
+      ],
+      "powertrain": "Електро",
+      "sentiment": []
+    },
+    {
+      "user": "anastasiiachernat",
       "text": "Мерседес",
       "likes": 1,
       "brands": [
@@ -384,29 +1120,18 @@
       "sentiment": []
     },
     {
-      "user": "anuta_kudrya",
-      "text": "Volvo xc90",
+      "user": "oksana.dizhak",
+      "text": "Мерседес гібрид,Porsche  Масаn,Porsche Cayenne",
       "likes": 1,
       "brands": [
-        "Volvo"
+        "Porsche",
+        "Mercedes-Benz"
       ],
       "models": [
-        "Volvo XC90"
+        "Porsche Cayenne",
+        "Porsche Macan"
       ],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
-      "user": "valeriiapitsun",
-      "text": "Volvo XC90",
-      "likes": 1,
-      "brands": [
-        "Volvo"
-      ],
-      "models": [
-        "Volvo XC90"
-      ],
-      "powertrain": "Не вказано (ймовірно бензин)",
+      "powertrain": "Гібрид",
       "sentiment": []
     },
     {
@@ -423,14 +1148,43 @@
       "sentiment": []
     },
     {
-      "user": "karpovets777",
-      "text": "Volkswagen Golf R VIII",
+      "user": "natalja.zorja",
+      "text": "Мерседес❤️‍🔥",
       "likes": 1,
+      "brands": [
+        "Mercedes-Benz"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": [
+        "positive_emoji",
+        "excitement"
+      ]
+    },
+    {
+      "user": "pansoroka",
+      "text": "Фольцваген, ренж, тесла , я гадаю що цього разу буде седан 😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍😍",
+      "likes": 1,
+      "brands": [
+        "Volkswagen",
+        "Tesla",
+        "Land Rover"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": [
+        "positive_emoji"
+      ]
+    },
+    {
+      "user": "nik_poltava",
+      "text": "VW Touareg 2020 року",
+      "likes": 2,
       "brands": [
         "Volkswagen"
       ],
       "models": [
-        "Volkswagen Golf"
+        "Volkswagen Touareg"
       ],
       "powertrain": "Не вказано (ймовірно бензин)",
       "sentiment": []
@@ -449,52 +1203,16 @@
       "sentiment": []
     },
     {
-      "user": "olenamaryniak",
-      "text": "Audi Q8",
-      "likes": 1,
+      "user": "alina.r_shevchuk",
+      "text": "Volkswagen Touareg або Atlas",
+      "likes": 2,
       "brands": [
-        "Audi"
+        "Volkswagen"
       ],
       "models": [
-        "Audi Q8/SQ8"
+        "Volkswagen Touareg",
+        "Volkswagen Atlas"
       ],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
-      "user": "kret_rehab",
-      "text": "Audi e-tron Sportback",
-      "likes": 1,
-      "brands": [
-        "Audi"
-      ],
-      "models": [
-        "Audi e-tron"
-      ],
-      "powertrain": "Електро",
-      "sentiment": []
-    },
-    {
-      "user": "slavkovulik",
-      "text": "dodge challenger",
-      "likes": 1,
-      "brands": [
-        "Dodge"
-      ],
-      "models": [
-        "Dodge Challenger"
-      ],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
-      "user": "anastasiiachernat",
-      "text": "Мерседес",
-      "likes": 1,
-      "brands": [
-        "Mercedes-Benz"
-      ],
-      "models": [],
       "powertrain": "Не вказано (ймовірно бензин)",
       "sentiment": []
     },
@@ -513,7 +1231,7 @@
     },
     {
       "user": "oleg_sotnikov",
-      "text": "Jeep Compass",
+      "text": "Jeep Compass 🧭",
       "likes": 0,
       "brands": [
         "Jeep"
@@ -577,19 +1295,6 @@
       "sentiment": []
     },
     {
-      "user": "irina_igorivna",
-      "text": "Audi e-tron",
-      "likes": 0,
-      "brands": [
-        "Audi"
-      ],
-      "models": [
-        "Audi e-tron"
-      ],
-      "powertrain": "Електро",
-      "sentiment": []
-    },
-    {
       "user": "annn.pavlenko",
       "text": "Toyota RAV4/Prado",
       "likes": 0,
@@ -626,17 +1331,6 @@
       "models": [
         "Mercedes-Benz S-Class"
       ],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
-      "user": "jroslavpalachcuk",
-      "text": "Рендж Ровер",
-      "likes": 0,
-      "brands": [
-        "Land Rover"
-      ],
-      "models": [],
       "powertrain": "Не вказано (ймовірно бензин)",
       "sentiment": []
     },
@@ -701,42 +1395,18 @@
       "sentiment": []
     },
     {
-      "user": "sanya_pulemet",
-      "text": "Audi SQ5",
-      "likes": 0,
-      "brands": [
-        "Audi"
-      ],
-      "models": [
-        "Audi Q5/SQ5"
-      ],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
-      "user": "as__chernets",
-      "text": "Порш каен або панамера",
-      "likes": 0,
-      "brands": [
-        "Porsche"
-      ],
-      "models": [
-        "Porsche Cayenne",
-        "Porsche Panamera"
-      ],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
       "user": "maclive360",
-      "text": "Volvo",
+      "text": "Volvo 🔥",
       "likes": 0,
       "brands": [
         "Volvo"
       ],
       "models": [],
       "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
+      "sentiment": [
+        "positive_emoji",
+        "excitement"
+      ]
     },
     {
       "user": "filipchuk_olesia",
@@ -760,39 +1430,13 @@
     },
     {
       "user": "onime4nik28",
-      "text": "BMW x7 в гарній комплектації",
+      "text": "BMW x7 в гарній комлпектації",
       "likes": 0,
       "brands": [
         "BMW"
       ],
       "models": [
         "BMW X7"
-      ],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
-      "user": "in.s.port",
-      "text": "Audi Q8",
-      "likes": 0,
-      "brands": [
-        "Audi"
-      ],
-      "models": [
-        "Audi Q8/SQ8"
-      ],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
-      "user": "shevlexx",
-      "text": "Audi rsq8",
-      "likes": 0,
-      "brands": [
-        "Audi"
-      ],
-      "models": [
-        "Audi Q8/SQ8"
       ],
       "powertrain": "Не вказано (ймовірно бензин)",
       "sentiment": []
@@ -811,33 +1455,6 @@
       "sentiment": []
     },
     {
-      "user": "apavlon",
-      "text": "Audi sq8",
-      "likes": 0,
-      "brands": [
-        "Audi"
-      ],
-      "models": [
-        "Audi Q8/SQ8"
-      ],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
-      "user": "bodya_adamenko",
-      "text": "Ауди q5/q7",
-      "likes": 0,
-      "brands": [
-        "Audi"
-      ],
-      "models": [
-        "Audi Q7",
-        "Audi Q5/SQ5"
-      ],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
       "user": "dmitriy.kolesnyk",
       "text": "Porsche Cayenne",
       "likes": 0,
@@ -851,19 +1468,8 @@
       "sentiment": []
     },
     {
-      "user": "lud_mila2093",
-      "text": "Аudl 8",
-      "likes": 0,
-      "brands": [
-        "Audi"
-      ],
-      "models": [],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
       "user": "olehsribnyi",
-      "text": "Suzuki jimny",
+      "text": "Suzuki jimny 🙌\nОскільки порівняно авто не дороге то можна і нове :) \nКолір Сахара 🔥",
       "likes": 0,
       "brands": [
         "Suzuki"
@@ -872,11 +1478,15 @@
         "Suzuki Jimny"
       ],
       "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
+      "sentiment": [
+        "positive_emoji",
+        "request_cheaper_new",
+        "excitement"
+      ]
     },
     {
       "user": "ninabugaichue",
-      "text": "Toyota Rav 4 (XA60)",
+      "text": "Toyota Rav 4( XA60)",
       "likes": 0,
       "brands": [
         "Toyota"
@@ -889,7 +1499,7 @@
     },
     {
       "user": "bihun.oleksandr",
-      "text": "кабріолет з жорсткою кришою, і можливо спробуйте дешевші авто але швидше проводити розіграш",
+      "text": "Хочеться кабріолет з жорсткою кришою. І можливо спробуйте дешевші авто але швидше проводити розіграш",
       "likes": 0,
       "brands": [],
       "models": [],
@@ -922,60 +1532,8 @@
       "sentiment": []
     },
     {
-      "user": "vitya_337",
-      "text": "Audi A8",
-      "likes": 0,
-      "brands": [
-        "Audi"
-      ],
-      "models": [
-        "Audi A8"
-      ],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
-      "user": "oleksandr.8294",
-      "text": "Audi Q5",
-      "likes": 0,
-      "brands": [
-        "Audi"
-      ],
-      "models": [
-        "Audi Q5/SQ5"
-      ],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
-      "user": "generallisiy",
-      "text": "Audi Q7",
-      "likes": 0,
-      "brands": [
-        "Audi"
-      ],
-      "models": [
-        "Audi Q7"
-      ],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
-      "user": "ya_mozhu_vse",
-      "text": "Audi SQ5 FY",
-      "likes": 0,
-      "brands": [
-        "Audi"
-      ],
-      "models": [
-        "Audi Q5/SQ5"
-      ],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
       "user": "6_vlad_reva_9",
-      "text": "Якийсь кабріолет, незабаром літо",
+      "text": "Якийсь кабріолет, незабаром літо, тож я думаю на літо було б круто кабрік, такий щоб дарував емоції",
       "likes": 0,
       "brands": [],
       "models": [],
@@ -1011,32 +1569,6 @@
       "sentiment": []
     },
     {
-      "user": "_mrs__uliana_",
-      "text": "Audi e-tron",
-      "likes": 0,
-      "brands": [
-        "Audi"
-      ],
-      "models": [
-        "Audi e-tron"
-      ],
-      "powertrain": "Електро",
-      "sentiment": []
-    },
-    {
-      "user": "endasiel",
-      "text": "BMW 330e Hybrid",
-      "likes": 0,
-      "brands": [
-        "BMW"
-      ],
-      "models": [
-        "BMW 3 Series"
-      ],
-      "powertrain": "Гібрид",
-      "sentiment": []
-    },
-    {
       "user": "popovich.slavik",
       "text": "Мерседес V-Class",
       "likes": 0,
@@ -1050,32 +1582,6 @@
       "sentiment": []
     },
     {
-      "user": "oleg_perebeynis",
-      "text": "BMW X7 G07",
-      "likes": 0,
-      "brands": [
-        "BMW"
-      ],
-      "models": [
-        "BMW X7"
-      ],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
-      "user": "fanberezhany",
-      "text": "Toyota sequoia 3.5 I force max ECT-i 2024",
-      "likes": 0,
-      "brands": [
-        "Toyota"
-      ],
-      "models": [
-        "Toyota Sequoia"
-      ],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
       "user": "lyubovkolbasova",
       "text": "Audi плагін гібрид в білому кольорі",
       "likes": 0,
@@ -1084,17 +1590,6 @@
       ],
       "models": [],
       "powertrain": "Гібрид",
-      "sentiment": []
-    },
-    {
-      "user": "y.pavliuk",
-      "text": "Аудіо е трон",
-      "likes": 0,
-      "brands": [
-        "Audi"
-      ],
-      "models": [],
-      "powertrain": "Не вказано (ймовірно бензин)",
       "sentiment": []
     },
     {
@@ -1112,7 +1607,7 @@
     },
     {
       "user": "vladmostenskii",
-      "text": "Chrysler Pacifica Hybrid або Lexus RX hybrid",
+      "text": "Chrysler Pacifica Hybrid або Lexus: RX hybrid",
       "likes": 0,
       "brands": [
         "Lexus",
@@ -1215,34 +1710,8 @@
       "sentiment": []
     },
     {
-      "user": "viacheslav_barkov_",
-      "text": "Audi Q8",
-      "likes": 0,
-      "brands": [
-        "Audi"
-      ],
-      "models": [
-        "Audi Q8/SQ8"
-      ],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
-      "user": "alina_valerivna_psy",
-      "text": "Audi sq8",
-      "likes": 0,
-      "brands": [
-        "Audi"
-      ],
-      "models": [
-        "Audi Q8/SQ8"
-      ],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
       "user": "_prosto_sup_",
-      "text": "Ford GT 40",
+      "text": "Ford GT 40😉",
       "likes": 0,
       "brands": [
         "Ford"
@@ -1251,7 +1720,9 @@
         "Ford GT40"
       ],
       "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
+      "sentiment": [
+        "positive_emoji"
+      ]
     },
     {
       "user": "carat926",
@@ -1268,7 +1739,7 @@
     },
     {
       "user": "demchenkomarya",
-      "text": "щось середнє, але нове. Не Porsche чи Mercedes",
+      "text": "А як щодо новенької машини з салону? Не Porshe чи Mersedes, а щось середнє, але нове. Думаю такого ще ніхто не робив.",
       "likes": 0,
       "brands": [
         "Porsche",
@@ -1282,27 +1753,17 @@
     },
     {
       "user": "nazaryus",
-      "text": "Хочу бачити Mercedes електрокар",
+      "text": "Хочу бачити Mercedes електрокар 🔥😍",
       "likes": 0,
       "brands": [
         "Mercedes-Benz"
       ],
       "models": [],
       "powertrain": "Електро",
-      "sentiment": []
-    },
-    {
-      "user": "msalamakha",
-      "text": "Cupra Formentor",
-      "likes": 0,
-      "brands": [
-        "Cupra"
-      ],
-      "models": [
-        "Cupra Formentor"
-      ],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
+      "sentiment": [
+        "positive_emoji",
+        "excitement"
+      ]
     },
     {
       "user": "slavikkholod26",
@@ -1331,21 +1792,8 @@
       "sentiment": []
     },
     {
-      "user": "_aleksandr_fedan_",
-      "text": "Audi Sq8",
-      "likes": 0,
-      "brands": [
-        "Audi"
-      ],
-      "models": [
-        "Audi Q8/SQ8"
-      ],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
       "user": "kolia.makushak",
-      "text": "BMW F36, 440i",
+      "text": "BMW F36, 440і ))))",
       "likes": 0,
       "brands": [
         "BMW"
@@ -1358,7 +1806,7 @@
     },
     {
       "user": "kolia.makushak",
-      "text": "Судячи з фотки, Mercedes c-class",
+      "text": "Судячи з фотки, Mercedes c-class))",
       "likes": 0,
       "brands": [
         "Mercedes-Benz"
@@ -1371,12 +1819,13 @@
     },
     {
       "user": "levitskijalexey",
-      "text": "Має бути щось цікаве, як колись з Eclipse",
+      "text": "Має бути щось цікаве,як колись з Eclipse 🔥🔥🔥",
       "likes": 0,
       "brands": [],
       "models": [],
       "powertrain": "Не вказано (ймовірно бензин)",
       "sentiment": [
+        "positive_emoji",
         "excitement"
       ]
     },
@@ -1387,43 +1836,6 @@
       "brands": [],
       "models": [],
       "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
-      "user": "zefir.kvity",
-      "text": "Audi Q8",
-      "likes": 0,
-      "brands": [
-        "Audi"
-      ],
-      "models": [
-        "Audi Q8/SQ8"
-      ],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
-      "user": "podgaiko_a",
-      "text": "Audi A7 Sportback",
-      "likes": 0,
-      "brands": [
-        "Audi"
-      ],
-      "models": [
-        "Audi A7"
-      ],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
-      "user": "zheka0429",
-      "text": "Zeekr 001",
-      "likes": 0,
-      "brands": [
-        "Zeekr"
-      ],
-      "models": [],
-      "powertrain": "Електро",
       "sentiment": []
     },
     {
@@ -1453,32 +1865,6 @@
       "sentiment": []
     },
     {
-      "user": "wow.decor.art",
-      "text": "Audi e-tron",
-      "likes": 0,
-      "brands": [
-        "Audi"
-      ],
-      "models": [
-        "Audi e-tron"
-      ],
-      "powertrain": "Електро",
-      "sentiment": []
-    },
-    {
-      "user": "polovyna",
-      "text": "Lexus ES hybrid",
-      "likes": 0,
-      "brands": [
-        "Lexus"
-      ],
-      "models": [
-        "Lexus ES"
-      ],
-      "powertrain": "Гібрид",
-      "sentiment": []
-    },
-    {
       "user": "zheka0429",
       "text": "Ford Mustang Mach-E",
       "likes": 0,
@@ -1489,19 +1875,6 @@
         "Ford Mustang"
       ],
       "powertrain": "Електро",
-      "sentiment": []
-    },
-    {
-      "user": "dima_bilokuryi",
-      "text": "BMW 5 серія гібрид",
-      "likes": 0,
-      "brands": [
-        "BMW"
-      ],
-      "models": [
-        "BMW 5 Series"
-      ],
-      "powertrain": "Гібрид",
       "sentiment": []
     },
     {
@@ -1523,17 +1896,6 @@
       "models": [
         "Tesla Model S"
       ],
-      "powertrain": "Електро",
-      "sentiment": []
-    },
-    {
-      "user": "art_tariko",
-      "text": "zeekr",
-      "likes": 0,
-      "brands": [
-        "Zeekr"
-      ],
-      "models": [],
       "powertrain": "Електро",
       "sentiment": []
     },
@@ -1575,7 +1937,7 @@
     },
     {
       "user": "kolia_kiev",
-      "text": "ЗАЗ з двигуном від 911",
+      "text": "ЗАЗ з двигунм від 911",
       "likes": 0,
       "brands": [
         "ZAZ"
@@ -1607,19 +1969,6 @@
       "sentiment": []
     },
     {
-      "user": "loha8kill",
-      "text": "Audi RS 3 Quattro",
-      "likes": 0,
-      "brands": [
-        "Audi"
-      ],
-      "models": [
-        "Audi RS3"
-      ],
-      "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
       "user": "_aleks__ander_",
       "text": "Tesla",
       "likes": 0,
@@ -1628,19 +1977,6 @@
       ],
       "models": [],
       "powertrain": "Електро",
-      "sentiment": []
-    },
-    {
-      "user": "aleksandr__9966",
-      "text": "Audi s6",
-      "likes": 0,
-      "brands": [
-        "Audi"
-      ],
-      "models": [
-        "Audi S6"
-      ],
-      "powertrain": "Не вказано (ймовірно бензин)",
       "sentiment": []
     },
     {
@@ -1654,19 +1990,6 @@
         "Toyota Prius"
       ],
       "powertrain": "Не вказано (ймовірно бензин)",
-      "sentiment": []
-    },
-    {
-      "user": "igor1.911",
-      "text": "bmw g30 hybrid",
-      "likes": 0,
-      "brands": [
-        "BMW"
-      ],
-      "models": [
-        "BMW 5 Series"
-      ],
-      "powertrain": "Гібрид",
       "sentiment": []
     },
     {
@@ -1692,19 +2015,6 @@
       "sentiment": []
     },
     {
-      "user": "rasta_0",
-      "text": "Audi e-tron",
-      "likes": 0,
-      "brands": [
-        "Audi"
-      ],
-      "models": [
-        "Audi e-tron"
-      ],
-      "powertrain": "Електро",
-      "sentiment": []
-    },
-    {
       "user": "b584265",
       "text": "WV tayron",
       "likes": 0,
@@ -1727,21 +2037,8 @@
       "sentiment": []
     },
     {
-      "user": "pavlo.fedchuk",
-      "text": "Lexus ES Hybrid",
-      "likes": 0,
-      "brands": [
-        "Lexus"
-      ],
-      "models": [
-        "Lexus ES"
-      ],
-      "powertrain": "Гібрид",
-      "sentiment": []
-    },
-    {
       "user": "k.nagorniy2019",
-      "text": "VAG group з двигуном 3.0 TDI і 8-ми ступеневою коробкою",
+      "text": "VAG group з двигуном 3.0 TDI і 8-ми ступеневою коробкою .",
       "likes": 0,
       "brands": [
         "Volkswagen"
@@ -1760,6 +2057,869 @@
       "models": [
         "Volvo V60"
       ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "b584265",
+      "text": "Kodiaq",
+      "likes": 0,
+      "brands": [],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "sofia_pentagon",
+      "text": "Toyota RAV4 Hybrid",
+      "likes": 0,
+      "brands": [
+        "Toyota"
+      ],
+      "models": [
+        "Toyota RAV4"
+      ],
+      "powertrain": "Гібрид",
+      "sentiment": []
+    },
+    {
+      "user": "sofia_pentagon",
+      "text": "Mercedes-Benz GLE 350de / 400e",
+      "likes": 0,
+      "brands": [
+        "Mercedes-Benz"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "s_cherepanov",
+      "text": "Форд фокус рс",
+      "likes": 0,
+      "brands": [
+        "Ford"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "den_denovich",
+      "text": "Треба вже не одне авто , а декілька .  Пропоную Теслу та  Фольксваген гольф",
+      "likes": 0,
+      "brands": [
+        "Volkswagen"
+      ],
+      "models": [
+        "Volkswagen Golf"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "sofia_pentagon",
+      "text": "Bentley Bentayga Hybrid 😁",
+      "likes": 0,
+      "brands": [],
+      "models": [],
+      "powertrain": "Гібрид",
+      "sentiment": []
+    },
+    {
+      "user": "misha_duu",
+      "text": "TOYOTA COROLLA CROSS HYBRID",
+      "likes": 0,
+      "brands": [
+        "Toyota"
+      ],
+      "models": [],
+      "powertrain": "Гібрид",
+      "sentiment": []
+    },
+    {
+      "user": "sofia_pentagon",
+      "text": "Zeekr 7X",
+      "likes": 0,
+      "brands": [
+        "Zeekr"
+      ],
+      "models": [],
+      "powertrain": "Електро",
+      "sentiment": []
+    },
+    {
+      "user": "sofia_pentagon",
+      "text": "Mercedes-Benz EQE SUV",
+      "likes": 0,
+      "brands": [
+        "Mercedes-Benz"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "sofia_pentagon",
+      "text": "Porsche Macan Electric",
+      "likes": 0,
+      "brands": [
+        "Porsche"
+      ],
+      "models": [
+        "Porsche Macan"
+      ],
+      "powertrain": "Електро",
+      "sentiment": []
+    },
+    {
+      "user": "sofia_pentagon",
+      "text": "Li Auto L7",
+      "likes": 0,
+      "brands": [],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "ivankuzyuk",
+      "text": "Porsche cayenne",
+      "likes": 0,
+      "brands": [
+        "Porsche"
+      ],
+      "models": [
+        "Porsche Cayenne"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "rising7oul",
+      "text": "Volvo xc70 cross country",
+      "likes": 0,
+      "brands": [
+        "Volvo"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "v_proscurin",
+      "text": "Давайте вже якийсь седан великий, А8L або S-ку",
+      "likes": 0,
+      "brands": [],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "liudmilalepish",
+      "text": "Lend Rover Discovery Sport 7місний",
+      "likes": 0,
+      "brands": [],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "doorman1508",
+      "text": "Крузак або рендж)",
+      "likes": 0,
+      "brands": [
+        "Land Rover"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "romshedlovskyi",
+      "text": "Теслу",
+      "likes": 0,
+      "brands": [],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "p88serg",
+      "text": "Infinity Q50, QX50, QX60",
+      "likes": 0,
+      "brands": [],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "mtukk",
+      "text": "Land Rover Discovery",
+      "likes": 0,
+      "brands": [
+        "Land Rover"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "lastochkin_28",
+      "text": "Давайте якогось крутого буса !🔥",
+      "likes": 0,
+      "brands": [],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": [
+        "positive_emoji",
+        "excitement"
+      ]
+    },
+    {
+      "user": "mariamahonka",
+      "text": "Volvo xc90",
+      "likes": 0,
+      "brands": [
+        "Volvo"
+      ],
+      "models": [
+        "Volvo XC90"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "sasuniksasa",
+      "text": "Toyota RAV4",
+      "likes": 0,
+      "brands": [
+        "Toyota"
+      ],
+      "models": [
+        "Toyota RAV4"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "k.nastik_",
+      "text": "Infinity",
+      "likes": 0,
+      "brands": [],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "yurayakob",
+      "text": "Сітроен Гранд Пікассо",
+      "likes": 0,
+      "brands": [],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "kosdmg",
+      "text": "Subaru outback wilderness 🙌",
+      "likes": 0,
+      "brands": [],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": [
+        "positive_emoji"
+      ]
+    },
+    {
+      "user": "demchenko9325",
+      "text": "Порше кайен",
+      "likes": 0,
+      "brands": [
+        "Porsche"
+      ],
+      "models": [
+        "Porsche Cayenne"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "richard.batcat",
+      "text": "Volkswagen Touareg, Porsche Macan",
+      "likes": 0,
+      "brands": [
+        "Porsche",
+        "Volkswagen"
+      ],
+      "models": [
+        "Porsche Macan",
+        "Volkswagen Touareg"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "melanika44",
+      "text": "Toyota Rav4 hibrid",
+      "likes": 0,
+      "brands": [
+        "Toyota"
+      ],
+      "models": [
+        "Toyota RAV4"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "shestakov.88",
+      "text": "Lexus RX / LX",
+      "likes": 0,
+      "brands": [
+        "Lexus"
+      ],
+      "models": [
+        "Lexus RX"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "bely721",
+      "text": "VW Touareg",
+      "likes": 0,
+      "brands": [
+        "Volkswagen"
+      ],
+      "models": [
+        "Volkswagen Touareg"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "mariiapoliukhovych",
+      "text": "Volvo xc90",
+      "likes": 0,
+      "brands": [
+        "Volvo"
+      ],
+      "models": [
+        "Volvo XC90"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "rice_r0cket",
+      "text": "Mazda mx5 2020",
+      "likes": 0,
+      "brands": [
+        "Mazda"
+      ],
+      "models": [
+        "Mazda MX-5"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "yuka_beauty_space",
+      "text": "Alfa Romeo Giulia ❤️ або Stelvio",
+      "likes": 0,
+      "brands": [],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": [
+        "positive_emoji"
+      ]
+    },
+    {
+      "user": "v.putns",
+      "text": "Я думаю на літо треба кабріо-Jaguar F Type🔥",
+      "likes": 0,
+      "brands": [
+        "Jaguar"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": [
+        "positive_emoji",
+        "excitement"
+      ]
+    },
+    {
+      "user": "yuriy324",
+      "text": "G20",
+      "likes": 0,
+      "brands": [],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "kramarenko111",
+      "text": "Toyota Prado J250🔥. Доречі вони є і гібридні",
+      "likes": 0,
+      "brands": [
+        "Toyota"
+      ],
+      "models": [
+        "Toyota Prado"
+      ],
+      "powertrain": "Гібрид",
+      "sentiment": [
+        "positive_emoji",
+        "excitement"
+      ]
+    },
+    {
+      "user": "m.tplv",
+      "text": "Toyota RAV4 Hybrid",
+      "likes": 0,
+      "brands": [
+        "Toyota"
+      ],
+      "models": [
+        "Toyota RAV4"
+      ],
+      "powertrain": "Гібрид",
+      "sentiment": []
+    },
+    {
+      "user": "instaknyaz",
+      "text": "Audi a6 c6",
+      "likes": 0,
+      "brands": [
+        "Audi"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "mi_kola6946",
+      "text": "Lexus RX 4-5 покоління, гібриб, на автоматі👍",
+      "likes": 0,
+      "brands": [
+        "Lexus"
+      ],
+      "models": [
+        "Lexus RX"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "vitaliksaloff",
+      "text": "Toyota Tundra ||| покоління.",
+      "likes": 0,
+      "brands": [
+        "Toyota"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "olya_fedechko_",
+      "text": "Toyota rav4 hybrid",
+      "likes": 0,
+      "brands": [
+        "Toyota"
+      ],
+      "models": [
+        "Toyota RAV4"
+      ],
+      "powertrain": "Гібрид",
+      "sentiment": []
+    },
+    {
+      "user": "b584265",
+      "text": "Ford flex нового покоління",
+      "likes": 0,
+      "brands": [
+        "Ford"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "maks_music_",
+      "text": "Audi A5 Sportback",
+      "likes": 0,
+      "brands": [
+        "Audi"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "4ydok",
+      "text": "AUDI RSQ8, Audi A7 Sportback, Audi RS6, Audi E-tron, Tesla Model X",
+      "likes": 0,
+      "brands": [
+        "Audi",
+        "Tesla"
+      ],
+      "models": [
+        "Audi e-tron",
+        "Audi Q8/SQ8",
+        "Audi A7",
+        "Tesla Model X"
+      ],
+      "powertrain": "Електро",
+      "sentiment": []
+    },
+    {
+      "user": "looklikepuma",
+      "text": "💥💥💥💥МерЦедес  ЦЛЕ💥💥💥💥💥",
+      "likes": 0,
+      "brands": [],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "yuri_slusar",
+      "text": "Acura integra 4 покоління \nAcura TLX turbo 2.0 чи 3.0 Type s  Acura MDX Type s 👏",
+      "likes": 0,
+      "brands": [],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "alexandro_.911._",
+      "text": "VW Arteon 😍🔥",
+      "likes": 0,
+      "brands": [
+        "Volkswagen"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": [
+        "positive_emoji",
+        "excitement"
+      ]
+    },
+    {
+      "user": "dmitry_anatolyevich0",
+      "text": "Dodge Challenger SRT Demon",
+      "likes": 0,
+      "brands": [
+        "Dodge"
+      ],
+      "models": [
+        "Dodge Challenger"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "docstroyukraine",
+      "text": "Tesla Model S",
+      "likes": 0,
+      "brands": [
+        "Tesla"
+      ],
+      "models": [
+        "Tesla Model S"
+      ],
+      "powertrain": "Електро",
+      "sentiment": []
+    },
+    {
+      "user": "nefor.ink",
+      "text": "BMW Z4",
+      "likes": 0,
+      "brands": [
+        "BMW"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "nefor.ink",
+      "text": "BMW 2 series coupe",
+      "likes": 0,
+      "brands": [
+        "BMW"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "yevheniashekhter",
+      "text": "Tesla Cybertruck Cyberbeast 2026",
+      "likes": 0,
+      "brands": [
+        "Tesla"
+      ],
+      "models": [],
+      "powertrain": "Електро",
+      "sentiment": []
+    },
+    {
+      "user": "sergiistets",
+      "text": "Audi Q8",
+      "likes": 0,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi Q8/SQ8"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "romakhomchak",
+      "text": "Тойота рав 4",
+      "likes": 0,
+      "brands": [
+        "Toyota"
+      ],
+      "models": [
+        "Toyota RAV4"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "ivan16sh",
+      "text": "audi e-tron gt",
+      "likes": 0,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi e-tron"
+      ],
+      "powertrain": "Електро",
+      "sentiment": []
+    },
+    {
+      "user": "tania_hrechanaya",
+      "text": "Audi Q8",
+      "likes": 0,
+      "brands": [
+        "Audi"
+      ],
+      "models": [
+        "Audi Q8/SQ8"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "maria_khymych",
+      "text": "Polestar 4",
+      "likes": 1,
+      "brands": [],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "poljotov",
+      "text": "volkswagen multivan",
+      "likes": 0,
+      "brands": [
+        "Volkswagen"
+      ],
+      "models": [
+        "Volkswagen Multivan"
+      ],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "_for_the_storm_",
+      "text": "Alfa romeo Stelvio",
+      "likes": 0,
+      "brands": [],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "_for_the_storm_",
+      "text": "Bmw X3 M40i",
+      "likes": 0,
+      "brands": [
+        "BMW"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "galina_knish",
+      "text": "Audi RS Q8, Q7, Audi E-tron, Tesla Model X ❤️",
+      "likes": 0,
+      "brands": [
+        "Audi",
+        "Tesla"
+      ],
+      "models": [
+        "Audi e-tron",
+        "Audi Q8/SQ8",
+        "Audi Q7",
+        "Tesla Model X"
+      ],
+      "powertrain": "Електро",
+      "sentiment": [
+        "positive_emoji"
+      ]
+    },
+    {
+      "user": "donetsvlad",
+      "text": "honda civic 5D",
+      "likes": 0,
+      "brands": [
+        "Honda"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "_for_the_storm_",
+      "text": "Tesla model X",
+      "likes": 0,
+      "brands": [
+        "Tesla"
+      ],
+      "models": [
+        "Tesla Model X"
+      ],
+      "powertrain": "Електро",
+      "sentiment": []
+    },
+    {
+      "user": "mira_p7",
+      "text": "Toyota\nYaris Cross гібрид",
+      "likes": 0,
+      "brands": [
+        "Toyota"
+      ],
+      "models": [],
+      "powertrain": "Гібрид",
+      "sentiment": []
+    },
+    {
+      "user": "g.rich.a",
+      "text": "BMW 530e FL",
+      "likes": 0,
+      "brands": [
+        "BMW"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "radchenko_victor_",
+      "text": "Toyota RAV4 Hybrid (2019–2021)🔥",
+      "likes": 0,
+      "brands": [
+        "Toyota"
+      ],
+      "models": [
+        "Toyota RAV4"
+      ],
+      "powertrain": "Гібрид",
+      "sentiment": [
+        "positive_emoji",
+        "excitement"
+      ]
+    },
+    {
+      "user": "g.rich.a",
+      "text": "BMW X3 G01",
+      "likes": 0,
+      "brands": [
+        "BMW"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "b584265",
+      "text": "Cupra",
+      "likes": 0,
+      "brands": [
+        "Cupra"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "magas_10",
+      "text": "Toyota Tundra",
+      "likes": 0,
+      "brands": [
+        "Toyota"
+      ],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "b584265",
+      "text": "Land cruiser",
+      "likes": 0,
+      "brands": [],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "vadim73601",
+      "text": "ВMW G30 рест",
+      "likes": 0,
+      "brands": [],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "masliuk8",
+      "text": "Toyota RAV4 Гібрид",
+      "likes": 0,
+      "brands": [
+        "Toyota"
+      ],
+      "models": [
+        "Toyota RAV4"
+      ],
+      "powertrain": "Гібрид",
+      "sentiment": []
+    },
+    {
+      "user": "b584265",
+      "text": "Gla 250",
+      "likes": 0,
+      "brands": [],
+      "models": [],
+      "powertrain": "Не вказано (ймовірно бензин)",
+      "sentiment": []
+    },
+    {
+      "user": "_have_fun_91_",
+      "text": "Audi E_tron (q4)",
+      "likes": 0,
+      "brands": [
+        "Audi"
+      ],
+      "models": [],
       "powertrain": "Не вказано (ймовірно бензин)",
       "sentiment": []
     }
