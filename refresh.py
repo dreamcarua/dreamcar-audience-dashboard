@@ -106,7 +106,7 @@ def git_push(message=None):
     if message is None:
         message = f"chore: auto-refresh {datetime.now().strftime('%Y-%m-%d %H:%M')}"
     # ensure we're on a branch
-    run("git add index.html analysis.json comments.json", check=False)
+    run("git add index.html nolikes.html analysis.json analysis_nolikes.json comments.json", check=False)
     diff = subprocess.run(
         "git diff --cached --quiet", shell=True, cwd=ROOT
     )
@@ -151,17 +151,59 @@ def main():
     if args.fetch_only:
         return
 
-    print("[2/3] Running analyze.py...", file=sys.stderr)
-    r = run("python3 analyze.py")
-    if r.stdout:
-        print(r.stdout)
-    if r.stderr:
-        print(r.stderr, file=sys.stderr)
+    # Два прогони: зі зваженими лайками (0.3) і без.
+    configs = [
+        {
+            "label": "З лайками",
+            "env": {"LIKE_WEIGHT": "0.3", "ANALYSIS_OUT": "analysis.json"},
+            "build_env": {
+                "ANALYSIS_IN": "analysis.json",
+                "DASHBOARD_OUT": "index.html",
+                "COMPANION_URL": "nolikes.html",
+                "COMPANION_LABEL": "Без лайків",
+                "THIS_LABEL": "З лайками (×0.3)",
+            },
+        },
+        {
+            "label": "Без лайків",
+            "env": {"LIKE_WEIGHT": "0", "ANALYSIS_OUT": "analysis_nolikes.json"},
+            "build_env": {
+                "ANALYSIS_IN": "analysis_nolikes.json",
+                "DASHBOARD_OUT": "nolikes.html",
+                "COMPANION_URL": "index.html",
+                "COMPANION_LABEL": "З лайками (×0.3)",
+                "THIS_LABEL": "Без лайків",
+            },
+        },
+    ]
 
-    print("[3/3] Running build_dashboard.py...", file=sys.stderr)
-    r = run("python3 build_dashboard.py")
-    if r.stdout:
-        print(r.stdout)
+    step = 2
+    for cfg in configs:
+        print(f"[{step}/5] analyze.py ({cfg['label']})...", file=sys.stderr)
+        env = os.environ.copy()
+        env.update(cfg["env"])
+        r = subprocess.run(
+            "python3 analyze.py", shell=True, cwd=ROOT, env=env,
+            capture_output=True, text=True, check=True,
+        )
+        if r.stdout:
+            print(r.stdout)
+        if r.stderr:
+            print(r.stderr, file=sys.stderr)
+        step += 1
+
+        print(f"[{step}/5] build_dashboard.py ({cfg['label']})...", file=sys.stderr)
+        env = os.environ.copy()
+        env.update(cfg["build_env"])
+        r = subprocess.run(
+            "python3 build_dashboard.py", shell=True, cwd=ROOT, env=env,
+            capture_output=True, text=True, check=True,
+        )
+        if r.stdout:
+            print(r.stdout)
+        if r.stderr:
+            print(r.stderr, file=sys.stderr)
+        step += 1
 
     if not args.no_push:
         git_push()

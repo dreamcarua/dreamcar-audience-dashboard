@@ -6,8 +6,19 @@ from datetime import datetime
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
 
-with open(os.path.join(_HERE, 'analysis.json'), 'r', encoding='utf-8') as f:
+# Параметри через env:
+#   ANALYSIS_IN  — який JSON читати (default analysis.json)
+#   DASHBOARD_OUT — куди писати HTML (default index.html)
+#   COMPANION_URL — URL альтернативної версії для перемикача (default "")
+#   COMPANION_LABEL — підпис альтернативної версії (default "")
+_in_name = os.environ.get('ANALYSIS_IN', 'analysis.json')
+with open(os.path.join(_HERE, _in_name), 'r', encoding='utf-8') as f:
     data = json.load(f)
+
+_COMPANION_URL = os.environ.get('COMPANION_URL', '')
+_COMPANION_LABEL = os.environ.get('COMPANION_LABEL', '')
+_THIS_LABEL = os.environ.get('THIS_LABEL', 'З лайками (×0.3)')
+_LIKE_WEIGHT_ACTUAL = data.get('like_weight', 0.3)
 
 # Динамічні топ-5 рекомендацій з analysis.json
 
@@ -87,7 +98,11 @@ insights = [
     {"title": "Eco-запит", "value": f"{eco_pct}% — гібрид/електро", "detail": f"Зважених згадок: {eco_weight:.1f}. Аудиторія свідома щодо силової установки."},
     {"title": "Premium-центр", "value": f"{premium_pct}% — Premium $40-80k", "detail": "Серцевина інтересу — доступний преміум."},
     {"title": "Кабріолет-меншість", "value": f"{data.get('cabriolet_mentions', 0)} зважених згадок", "detail": "Малий але помітний сегмент — літній маркетинг."},
-    {"title": "Зважування", "value": f"Лайк = {data.get('like_weight', 0.3)}", "detail": f"Враховані {data.get('total_likes', 0)} лайків на {data.get('total_comments', 0)} коментарях."},
+    (
+        {"title": "Зважування", "value": f"Лайк = {data.get('like_weight', 0.3)}", "detail": f"Враховані {data.get('total_likes', 0)} лайків на {data.get('total_comments', 0)} коментарях."}
+        if data.get('like_weight', 0.3)
+        else {"title": "Без вагових коефіцієнтів", "value": "1 коментар = 1 згадка", "detail": f"Лайки ({data.get('total_likes', 0)}) не враховуються. Всі згадки рахуються однаково."}
+    ),
 ]
 
 # Sample comments for explorer
@@ -325,6 +340,32 @@ html = f"""<!DOCTYPE html>
   .badge.yellow {{ background: rgba(243,156,18,0.15); color: var(--warning); }}
 
   footer {{ color: var(--muted); font-size: 12px; margin-top: 40px; text-align: center; padding: 20px; }}
+
+  /* Toggle between weighted/un-weighted views */
+  .view-switch {{
+    display: inline-flex;
+    gap: 0;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 4px;
+    margin: 8px 0 0;
+  }}
+  .view-switch a, .view-switch span {{
+    display: inline-block;
+    padding: 7px 16px;
+    font-size: 13px;
+    border-radius: 999px;
+    text-decoration: none;
+    color: var(--muted);
+    transition: all .15s ease;
+  }}
+  .view-switch .active {{
+    background: var(--accent);
+    color: #0b0f1a;
+    font-weight: 700;
+  }}
+  .view-switch a:hover {{ color: var(--text); }}
 </style>
 </head>
 <body>
@@ -333,13 +374,14 @@ html = f"""<!DOCTYPE html>
     <h1>🏁 DreamCar — Аналіз коментарів «Який буде наступний проєкт?»</h1>
     <p>Пост: <a class="post-link" href="https://www.instagram.com/p/DXV7u2TjEe4/" target="_blank">@dreamcar.ua / p/DXV7u2TjEe4</a>
        · Згенеровано 20.04.2026 · Джерело: Instagram GraphQL API</p>
+    {(f'<div class="view-switch"><span class="active">{_THIS_LABEL}</span><a href="{_COMPANION_URL}">{_COMPANION_LABEL}</a></div>' if _COMPANION_URL else '')}
   </header>
 
   <!-- Top stats -->
   <div class="stats-row">
     <div class="stat"><div class="label">Усього коментарів</div><div class="value">{data["total_comments"]}</div><div class="sublabel">{data.get("total_likes", 0)} лайків усього</div></div>
     <div class="stat"><div class="label">Унікальних авторів</div><div class="value">{data["unique_users"]}</div><div class="sublabel">1 юзер ≈ 1 коментар</div></div>
-    <div class="stat"><div class="label">Розпізнано марок</div><div class="value">{sum(brand_data.values()):.0f}</div><div class="sublabel">зважено: лайк = {data.get("like_weight", 0.3)} коментаря</div></div>
+    <div class="stat"><div class="label">Розпізнано марок</div><div class="value">{sum(brand_data.values()):.0f}</div><div class="sublabel">{('зважено: лайк = ' + str(_LIKE_WEIGHT_ACTUAL) + ' коментаря') if _LIKE_WEIGHT_ACTUAL else 'без урахування лайків (1 коментар = 1 згадка)'}</div></div>
     <div class="stat"><div class="label">Розпізнано моделей</div><div class="value">{sum(model_data.values()):.0f}</div><div class="sublabel">нормалізація кирилиці й латиниці</div></div>
     <div class="stat"><div class="label">Топ-марка</div><div class="value" style="font-size:22px; color:var(--accent)">{(list(brand_data.keys())[0] if brand_data else "—")}</div><div class="sublabel">{(list(brand_data.values())[0] if brand_data else 0):.1f} зважених згадок</div></div>
     <div class="stat"><div class="label">Топ-модель</div><div class="value" style="font-size:22px; color:var(--accent)">{(list(model_data.keys())[0] if model_data else "—")}</div><div class="sublabel">{(list(model_data.values())[0] if model_data else 0):.1f} зважених згадок</div></div>
@@ -575,7 +617,7 @@ renderComments();
 _ts = datetime.now().strftime('%d.%m.%Y %H:%M CET')
 html = html.replace('</body>', f'<div style="text-align:center;padding:15px;color:#666;font-size:12px">Last updated: {_ts}</div></body>')
 
-_out = os.path.join(_HERE, 'index.html')
+_out = os.path.join(_HERE, os.environ.get('DASHBOARD_OUT', 'index.html'))
 with open(_out, 'w', encoding='utf-8') as f:
     f.write(html)
 

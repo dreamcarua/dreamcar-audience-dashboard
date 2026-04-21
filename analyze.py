@@ -411,8 +411,9 @@ unique_parent_users = set()
 
 processed = []
 
-# Вага: 1 коментар = 1.0, 1 лайк = 0.3
-LIKE_WEIGHT = 0.3
+# Вага: 1 коментар = 1.0, 1 лайк = LIKE_WEIGHT (default 0.3)
+# Override via env LIKE_WEIGHT (set to 0 to disable likes weighting)
+LIKE_WEIGHT = float(os.environ.get('LIKE_WEIGHT', '0.3'))
 
 for c in comments:
     text = c['t']
@@ -504,7 +505,8 @@ report = {
     'processed': processed,
 }
 
-with open(os.path.join(_HERE, 'analysis.json'), 'w', encoding='utf-8') as f:
+_out_name = os.environ.get('ANALYSIS_OUT', 'analysis.json')
+with open(os.path.join(_HERE, _out_name), 'w', encoding='utf-8') as f:
     json.dump(report, f, ensure_ascii=False, indent=2)
 
 print("=== ВСЬОГО КОМЕНТАРІВ ===")
