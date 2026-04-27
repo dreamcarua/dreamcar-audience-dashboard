@@ -360,7 +360,7 @@ MODEL_NORMALIZE = {
         r'\b(xc40|xc\s*40)\b': 'XC40',
         r'\b(s60)\b': 'S60',
         r'\b(v60)\b': 'V60',
-        r'\b(v90|v90\s*cross\s*country|v90cc)\b': 'V90',
+        r'\b(v90\b|v90\s*cross\s*country|v90cc|v\s*90\s*cross)\b': 'V90',
         r'\b(xc70|xc\s*70|хс\s*70)\b': 'XC70',
         r'\b(s90|s\s*90)\b': 'S90',
         r'\b(хс\s*90)\b': 'XC90',
